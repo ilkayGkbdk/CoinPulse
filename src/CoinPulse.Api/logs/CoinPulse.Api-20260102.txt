@@ -181,3 +181,1691 @@ LIMIT 1
 [19:12:03 INF] HTTP GET /api/prices/history/BT responded 200 in 20.8794 ms
 [19:12:11 INF] HTTP GET /api/prices/history/BCT responded 200 in 19.7846 ms
 [19:12:45 INF] Bus stopped: "rabbitmq://localhost/"
+[20:00:30 INF] Initializing UI Database
+[20:00:30 ERR] Hosting failed to start
+System.MissingMethodException: Method not found: 'System.String Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings.ArgumentIsEmpty(System.Object)'.
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotEmpty(String value, String parameterName)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, InMemoryDatabaseRoot databaseRoot, Action`1 inMemoryOptionsAction)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, Action`1 inMemoryOptionsAction)
+   at Microsoft.Extensions.DependencyInjection.HealthChecksUIBuilderExtensions.<>c__DisplayClass0_0.<AddInMemoryStorage>b__0(DbContextOptionsBuilder options) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI.InMemory.Storage/HealthChecksUIBuilderExtensions.cs:line 13
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.<>c__DisplayClass1_0`2.<AddDbContext>b__0(IServiceProvider _, DbContextOptionsBuilder b)
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.DbContextOptionsConfiguration`1.Configure(IServiceProvider serviceProvider, DbContextOptionsBuilder optionsBuilder)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.CreateDbContextOptions[TContext](IServiceProvider applicationServiceProvider)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.InitializeDatabaseAsync(IServiceProvider sp) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 44
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.StartAsync(CancellationToken cancellationToken) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 34
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+[20:00:30 WRN] Failed to stop bus: "rabbitmq://localhost/IlkayMacBookAir_CoinPulseApi_bus_19yyyydg6u5c7p5wbdxrwedxde?temporary=true" (Not Started)
+[20:00:30 FTL] Uygulama beklenmedik bir şekilde sonlandı!
+System.MissingMethodException: Method not found: 'System.String Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings.ArgumentIsEmpty(System.Object)'.
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotEmpty(String value, String parameterName)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, InMemoryDatabaseRoot databaseRoot, Action`1 inMemoryOptionsAction)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, Action`1 inMemoryOptionsAction)
+   at Microsoft.Extensions.DependencyInjection.HealthChecksUIBuilderExtensions.<>c__DisplayClass0_0.<AddInMemoryStorage>b__0(DbContextOptionsBuilder options) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI.InMemory.Storage/HealthChecksUIBuilderExtensions.cs:line 13
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.<>c__DisplayClass1_0`2.<AddDbContext>b__0(IServiceProvider _, DbContextOptionsBuilder b)
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.DbContextOptionsConfiguration`1.Configure(IServiceProvider serviceProvider, DbContextOptionsBuilder optionsBuilder)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.CreateDbContextOptions[TContext](IServiceProvider applicationServiceProvider)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.InitializeDatabaseAsync(IServiceProvider sp) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 44
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.StartAsync(CancellationToken cancellationToken) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 34
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/Program.cs:line 135
+[20:01:05 INF] Initializing UI Database
+[20:01:05 ERR] Hosting failed to start
+System.MissingMethodException: Method not found: 'System.String Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings.ArgumentIsEmpty(System.Object)'.
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotEmpty(String value, String parameterName)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, InMemoryDatabaseRoot databaseRoot, Action`1 inMemoryOptionsAction)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, Action`1 inMemoryOptionsAction)
+   at Microsoft.Extensions.DependencyInjection.HealthChecksUIBuilderExtensions.<>c__DisplayClass0_0.<AddInMemoryStorage>b__0(DbContextOptionsBuilder options) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI.InMemory.Storage/HealthChecksUIBuilderExtensions.cs:line 13
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.<>c__DisplayClass1_0`2.<AddDbContext>b__0(IServiceProvider _, DbContextOptionsBuilder b)
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.DbContextOptionsConfiguration`1.Configure(IServiceProvider serviceProvider, DbContextOptionsBuilder optionsBuilder)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.CreateDbContextOptions[TContext](IServiceProvider applicationServiceProvider)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.InitializeDatabaseAsync(IServiceProvider sp) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 44
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.StartAsync(CancellationToken cancellationToken) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 34
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+[20:01:05 WRN] Failed to stop bus: "rabbitmq://localhost/IlkayMacBookAir_CoinPulseApi_bus_m9boyydg6u5chbkebdxrwerrng?temporary=true" (Not Started)
+[20:01:05 FTL] Uygulama beklenmedik bir şekilde sonlandı!
+System.MissingMethodException: Method not found: 'System.String Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings.ArgumentIsEmpty(System.Object)'.
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotEmpty(String value, String parameterName)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, InMemoryDatabaseRoot databaseRoot, Action`1 inMemoryOptionsAction)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, Action`1 inMemoryOptionsAction)
+   at Microsoft.Extensions.DependencyInjection.HealthChecksUIBuilderExtensions.<>c__DisplayClass0_0.<AddInMemoryStorage>b__0(DbContextOptionsBuilder options) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI.InMemory.Storage/HealthChecksUIBuilderExtensions.cs:line 13
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.<>c__DisplayClass1_0`2.<AddDbContext>b__0(IServiceProvider _, DbContextOptionsBuilder b)
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.DbContextOptionsConfiguration`1.Configure(IServiceProvider serviceProvider, DbContextOptionsBuilder optionsBuilder)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.CreateDbContextOptions[TContext](IServiceProvider applicationServiceProvider)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.InitializeDatabaseAsync(IServiceProvider sp) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 44
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.StartAsync(CancellationToken cancellationToken) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 34
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/Program.cs:line 135
+[20:01:24 INF] Initializing UI Database
+[20:01:24 ERR] Hosting failed to start
+System.MissingMethodException: Method not found: 'System.String Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings.ArgumentIsEmpty(System.Object)'.
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotEmpty(String value, String parameterName)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, InMemoryDatabaseRoot databaseRoot, Action`1 inMemoryOptionsAction)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, Action`1 inMemoryOptionsAction)
+   at Microsoft.Extensions.DependencyInjection.HealthChecksUIBuilderExtensions.<>c__DisplayClass0_0.<AddInMemoryStorage>b__0(DbContextOptionsBuilder options) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI.InMemory.Storage/HealthChecksUIBuilderExtensions.cs:line 13
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.<>c__DisplayClass1_0`2.<AddDbContext>b__0(IServiceProvider _, DbContextOptionsBuilder b)
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.DbContextOptionsConfiguration`1.Configure(IServiceProvider serviceProvider, DbContextOptionsBuilder optionsBuilder)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.CreateDbContextOptions[TContext](IServiceProvider applicationServiceProvider)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.InitializeDatabaseAsync(IServiceProvider sp) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 44
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.StartAsync(CancellationToken cancellationToken) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 34
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+[20:01:24 WRN] Failed to stop bus: "rabbitmq://localhost/IlkayMacBookAir_CoinPulseApi_bus_rdnyyydg6u5chgocbdxrwerxr3?temporary=true" (Not Started)
+[20:01:24 FTL] Uygulama beklenmedik bir şekilde sonlandı!
+System.MissingMethodException: Method not found: 'System.String Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings.ArgumentIsEmpty(System.Object)'.
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotEmpty(String value, String parameterName)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, InMemoryDatabaseRoot databaseRoot, Action`1 inMemoryOptionsAction)
+   at Microsoft.EntityFrameworkCore.InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(DbContextOptionsBuilder optionsBuilder, String databaseName, Action`1 inMemoryOptionsAction)
+   at Microsoft.Extensions.DependencyInjection.HealthChecksUIBuilderExtensions.<>c__DisplayClass0_0.<AddInMemoryStorage>b__0(DbContextOptionsBuilder options) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI.InMemory.Storage/HealthChecksUIBuilderExtensions.cs:line 13
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.<>c__DisplayClass1_0`2.<AddDbContext>b__0(IServiceProvider _, DbContextOptionsBuilder b)
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.DbContextOptionsConfiguration`1.Configure(IServiceProvider serviceProvider, DbContextOptionsBuilder optionsBuilder)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.CreateDbContextOptions[TContext](IServiceProvider applicationServiceProvider)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.InitializeDatabaseAsync(IServiceProvider sp) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 44
+   at HealthChecks.UI.Core.HostedService.UIInitializationHostedService.StartAsync(CancellationToken cancellationToken) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.UI/Core/HostedService/UIInitializationHostedService.cs:line 34
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/Program.cs:line 135
+[20:03:52 INF] Initializing UI Database
+[20:03:52 INF] Executing database migrations
+[20:03:52 INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+[20:03:52 INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+[20:03:52 INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+[20:03:52 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsLock" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK___EFMigrationsLock" PRIMARY KEY,
+    "Timestamp" TEXT NOT NULL
+);
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2026-01-02 17:03:52.406538+00:00');
+SELECT changes();
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+[20:03:52 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+[20:03:52 INF] Applying migration '20200410123101_initial'.
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Configurations" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Configurations" PRIMARY KEY AUTOINCREMENT,
+    "Uri" TEXT NOT NULL,
+    "Name" TEXT NOT NULL,
+    "DiscoveryService" TEXT NULL
+);
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Executions" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Executions" PRIMARY KEY AUTOINCREMENT,
+    "Status" INTEGER NOT NULL,
+    "OnStateFrom" TEXT NOT NULL,
+    "LastExecuted" TEXT NOT NULL,
+    "Uri" TEXT NOT NULL,
+    "Name" TEXT NOT NULL,
+    "DiscoveryService" TEXT NULL
+);
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Failures" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Failures" PRIMARY KEY AUTOINCREMENT,
+    "HealthCheckName" TEXT NOT NULL,
+    "LastNotified" TEXT NOT NULL,
+    "IsUpAndRunning" INTEGER NOT NULL
+);
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "HealthCheckExecutionEntries" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_HealthCheckExecutionEntries" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL,
+    "Description" TEXT NULL,
+    "Duration" TEXT NOT NULL,
+    "HealthCheckExecutionId" INTEGER NULL,
+    CONSTRAINT "FK_HealthCheckExecutionEntries_Executions_HealthCheckExecutionId" FOREIGN KEY ("HealthCheckExecutionId") REFERENCES "Executions" ("Id") ON DELETE RESTRICT
+);
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "HealthCheckExecutionHistories" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_HealthCheckExecutionHistories" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NULL,
+    "Description" TEXT NULL,
+    "Status" INTEGER NOT NULL,
+    "On" TEXT NOT NULL,
+    "HealthCheckExecutionId" INTEGER NULL,
+    CONSTRAINT "FK_HealthCheckExecutionHistories_Executions_HealthCheckExecutionId" FOREIGN KEY ("HealthCheckExecutionId") REFERENCES "Executions" ("Id") ON DELETE RESTRICT
+);
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_HealthCheckExecutionEntries_HealthCheckExecutionId" ON "HealthCheckExecutionEntries" ("HealthCheckExecutionId");
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_HealthCheckExecutionHistories_HealthCheckExecutionId" ON "HealthCheckExecutionHistories" ("HealthCheckExecutionId");
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20200410123101_initial', '10.0.1');
+[20:03:52 INF] Applying migration '20200915212630_3.1.2-changes'.
+[20:03:52 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "HealthCheckExecutionEntries" ADD "Tags" TEXT NULL;
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20200915212630_3.1.2-changes', '10.0.1');
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Configurations" AS "c")
+[20:03:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:03:52 INF] Bus started: "rabbitmq://localhost/"
+[20:03:52 INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+[20:03:52 INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[20:03:52 INF] Server ilkay-macbook-air:50993:7bef76c0 successfully announced in 2,7206 ms
+[20:03:52 INF] Server ilkay-macbook-air:50993:7bef76c0 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[20:03:52 INF] Server ilkay-macbook-air:50993:7bef76c0 all the dispatchers started
+[20:04:02 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:04:07 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "CryptoPrices" AS "c"
+[20:04:07 INF] [Hangfire 🚀] Dakikalık Rapor: Sistemde toplam 153 adet fiyat kaydı var.
+[20:04:12 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:04:22 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:04:25 WRN] Failed to determine the https port for redirect.
+[20:04:25 INF] HTTP GET / responded 404 in 3.8250 ms
+[20:04:32 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:04:33 INF] HTTP GET /hangfire responded 200 in 46.9666 ms
+[20:04:33 INF] HTTP GET /hangfire/css-dark1822079821041 responded 200 in 4.1921 ms
+[20:04:33 INF] HTTP GET /hangfire/css182201785052296 responded 200 in 11.4389 ms
+[20:04:33 INF] HTTP GET /hangfire/js18220382256655 responded 200 in 12.6546 ms
+[20:04:33 INF] HTTP GET /hangfire/fonts/glyphicons-halflings-regular/woff2 responded 200 in 0.4121 ms
+[20:04:35 INF] HTTP POST /hangfire/stats responded 200 in 23.3213 ms
+[20:04:37 INF] HTTP POST /hangfire/stats responded 200 in 2.4361 ms
+[20:04:39 INF] HTTP POST /hangfire/stats responded 200 in 0.5685 ms
+[20:04:41 INF] HTTP POST /hangfire/stats responded 200 in 0.8725 ms
+[20:04:42 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:04:43 INF] HTTP POST /hangfire/stats responded 200 in 1.3565 ms
+[20:04:45 INF] HTTP POST /hangfire/stats responded 200 in 0.8122 ms
+[20:04:46 INF] HTTP GET /hangfire/recurring responded 200 in 23.0459 ms
+[20:04:48 INF] HTTP POST /hangfire/stats responded 200 in 1.1568 ms
+[20:04:50 INF] HTTP POST /hangfire/stats responded 200 in 0.7565 ms
+[20:04:50 INF] HTTP GET /hangfire/ responded 200 in 0.9673 ms
+[20:04:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:04:52 INF] HTTP POST /hangfire/stats responded 200 in 0.5273 ms
+[20:04:54 INF] HTTP GET /hangfire/recurring responded 200 in 2.1325 ms
+[20:04:56 INF] HTTP POST /hangfire/stats responded 200 in 1.6757 ms
+[20:04:58 INF] HTTP POST /hangfire/stats responded 200 in 0.8581 ms
+[20:05:00 INF] HTTP POST /hangfire/stats responded 200 in 1.6348 ms
+[20:05:02 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:05:02 INF] HTTP POST /hangfire/stats responded 200 in 0.8818 ms
+[20:05:04 INF] HTTP POST /hangfire/stats responded 200 in 0.4675 ms
+[20:05:06 INF] HTTP GET /hangfire/ responded 200 in 1.1061 ms
+[20:05:07 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "CryptoPrices" AS "c"
+[20:05:07 INF] [Hangfire 🚀] Dakikalık Rapor: Sistemde toplam 153 adet fiyat kaydı var.
+[20:05:08 INF] HTTP POST /hangfire/stats responded 200 in 0.3990 ms
+[20:05:11 INF] HTTP POST /hangfire/stats responded 200 in 2.5921 ms
+[20:05:12 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:05:14 INF] HTTP POST /hangfire/stats responded 200 in 0.5170 ms
+[20:05:16 INF] HTTP POST /hangfire/stats responded 200 in 0.8998 ms
+[20:05:18 INF] HTTP POST /hangfire/stats responded 200 in 0.9323 ms
+[20:05:20 INF] HTTP POST /hangfire/stats responded 200 in 0.4362 ms
+[20:05:22 INF] HTTP POST /hangfire/stats responded 200 in 0.4625 ms
+[20:05:22 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:05:22 INF] HTTP GET /hangfire/servers responded 200 in 21.2584 ms
+[20:05:24 INF] HTTP GET /hangfire/recurring responded 200 in 2.6372 ms
+[20:05:26 INF] HTTP POST /hangfire/stats responded 200 in 2.8822 ms
+[20:05:28 INF] HTTP POST /hangfire/stats responded 200 in 0.7379 ms
+[20:05:30 INF] HTTP POST /hangfire/stats responded 200 in 1.1496 ms
+[20:05:32 INF] HTTP POST /hangfire/stats responded 200 in 1.4747 ms
+[20:05:32 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:05:34 INF] HTTP POST /hangfire/stats responded 200 in 0.4492 ms
+[20:05:36 INF] HTTP POST /hangfire/stats responded 200 in 0.6771 ms
+[20:05:38 INF] HTTP POST /hangfire/stats responded 200 in 0.5849 ms
+[20:05:40 INF] HTTP POST /hangfire/stats responded 200 in 0.6814 ms
+[20:05:42 INF] HTTP POST /hangfire/stats responded 200 in 0.3583 ms
+[20:05:42 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:05:43 INF] HTTP GET /hangfire/jobs/details/8442c4ab-455e-4e61-8de7-7f91ceba8766 responded 200 in 16.6243 ms
+[20:05:45 INF] HTTP POST /hangfire/stats responded 200 in 0.8503 ms
+[20:05:47 INF] HTTP POST /hangfire/stats responded 200 in 0.6697 ms
+[20:05:49 INF] HTTP POST /hangfire/stats responded 200 in 0.9044 ms
+[20:05:50 INF] HTTP GET /hangfire/jobs/succeeded responded 200 in 27.1002 ms
+[20:05:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:05:52 INF] HTTP GET /hangfire/jobs/details/8442c4ab-455e-4e61-8de7-7f91ceba8766 responded 200 in 2.3863 ms
+[20:05:54 INF] HTTP POST /hangfire/stats responded 200 in 0.3123 ms
+[20:05:56 INF] HTTP POST /hangfire/stats responded 200 in 0.4688 ms
+[20:05:58 INF] HTTP POST /hangfire/stats responded 200 in 0.2319 ms
+[20:06:00 INF] HTTP POST /hangfire/stats responded 200 in 0.5853 ms
+[20:06:02 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:06:02 INF] HTTP POST /hangfire/stats responded 200 in 0.5786 ms
+[20:06:04 INF] HTTP POST /hangfire/stats responded 200 in 0.2681 ms
+[20:06:06 INF] HTTP POST /hangfire/stats responded 200 in 0.5883 ms
+[20:06:07 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "CryptoPrices" AS "c"
+[20:06:07 INF] [Hangfire 🚀] Dakikalık Rapor: Sistemde toplam 153 adet fiyat kaydı var.
+[20:06:09 INF] HTTP POST /hangfire/stats responded 200 in 0.2728 ms
+[20:06:11 INF] HTTP POST /hangfire/stats responded 200 in 0.4690 ms
+[20:06:12 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:06:13 INF] HTTP POST /hangfire/stats responded 200 in 0.6573 ms
+[20:06:13 INF] HTTP GET /hangfire/recurring responded 200 in 2.4789 ms
+[20:06:14 INF] HTTP GET /hangfire/ responded 200 in 1.8513 ms
+[20:06:16 INF] HTTP POST /hangfire/stats responded 200 in 1.3343 ms
+[20:06:17 INF] HTTP POST /hangfire/stats responded 200 in 0.3229 ms
+[20:06:19 INF] HTTP POST /hangfire/stats responded 200 in 0.3407 ms
+[20:06:20 INF] HTTP GET /hangfire/recurring responded 200 in 1.6503 ms
+[20:06:22 INF] HTTP POST /hangfire/stats responded 200 in 0.4161 ms
+[20:06:22 INF] HTTP GET /hangfire/jobs/details/cd0ba272-72aa-48ef-973a-8ab86ed4a466 responded 200 in 2.2391 ms
+[20:06:22 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:06:24 INF] HTTP POST /hangfire/stats responded 200 in 3.4507 ms
+[20:06:26 INF] HTTP POST /hangfire/stats responded 200 in 1.3336 ms
+[20:06:28 INF] HTTP POST /hangfire/stats responded 200 in 0.3753 ms
+[20:06:30 INF] HTTP POST /hangfire/stats responded 200 in 0.9380 ms
+[20:06:31 INF] HTTP GET /hangfire/jobs/succeeded responded 200 in 6.5672 ms
+[20:06:32 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:06:33 INF] HTTP POST /hangfire/stats responded 200 in 0.1635 ms
+[20:06:35 INF] HTTP POST /hangfire/stats responded 200 in 0.4930 ms
+[20:06:36 INF] HTTP GET /hangfire/jobs/details/cd0ba272-72aa-48ef-973a-8ab86ed4a466 responded 200 in 1.4845 ms
+[20:06:38 INF] HTTP POST /hangfire/stats responded 200 in 0.9854 ms
+[20:06:40 INF] HTTP POST /hangfire/stats responded 200 in 1.1290 ms
+[20:06:42 INF] HTTP POST /hangfire/stats responded 200 in 0.7402 ms
+[20:06:42 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:06:44 INF] HTTP POST /hangfire/stats responded 200 in 0.4388 ms
+[20:06:46 INF] HTTP POST /hangfire/stats responded 200 in 1.1430 ms
+[20:06:48 INF] HTTP POST /hangfire/stats responded 200 in 0.9933 ms
+[20:06:50 INF] HTTP POST /hangfire/stats responded 200 in 0.3913 ms
+[20:06:52 INF] HTTP POST /hangfire/stats responded 200 in 0.4276 ms
+[20:06:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:06:54 INF] HTTP POST /hangfire/stats responded 200 in 0.4005 ms
+[20:06:56 INF] HTTP POST /hangfire/stats responded 200 in 0.9255 ms
+[20:06:59 INF] HTTP POST /hangfire/stats responded 200 in 0.4877 ms
+[20:07:02 INF] HTTP POST /hangfire/stats responded 200 in 0.7235 ms
+[20:07:02 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:05 INF] HTTP POST /hangfire/stats responded 200 in 0.2964 ms
+[20:07:07 INF] HTTP POST /hangfire/stats responded 200 in 0.5011 ms
+[20:07:07 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "CryptoPrices" AS "c"
+[20:07:07 INF] [Hangfire 🚀] Dakikalık Rapor: Sistemde toplam 153 adet fiyat kaydı var.
+[20:07:10 INF] HTTP POST /hangfire/stats responded 200 in 0.6391 ms
+[20:07:12 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:13 INF] HTTP POST /hangfire/stats responded 200 in 0.5355 ms
+[20:07:16 INF] HTTP POST /hangfire/stats responded 200 in 0.6770 ms
+[20:07:18 INF] HTTP POST /hangfire/stats responded 200 in 0.2538 ms
+[20:07:20 INF] HTTP POST /hangfire/stats responded 200 in 0.3330 ms
+[20:07:22 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:23 INF] HTTP POST /hangfire/stats responded 200 in 1.1007 ms
+[20:07:24 INF] HTTP GET /health-ui responded 200 in 10.4538 ms
+[20:07:24 INF] HTTP GET /ui/resources/healthchecksui-min.css responded 200 in 2.0187 ms
+[20:07:24 INF] HTTP GET /ui/resources/healthchecks-bundle.js responded 200 in 4.5414 ms
+[20:07:24 INF] HTTP GET /ui/resources/vendors-dll.js responded 200 in 4.5476 ms
+[20:07:24 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 24.1521 ms
+[20:07:24 INF] HTTP GET /favicon.ico responded 404 in 0.0810 ms
+[20:07:24 INF] HTTP GET /favicon.ico responded 404 in 0.0068 ms
+[20:07:24 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:24 INF] HTTP GET /healthchecks-api responded 200 in 22.9175 ms
+[20:07:26 INF] HTTP POST /hangfire/stats responded 200 in 0.5271 ms
+[20:07:28 INF] HTTP GET /health-ui responded 200 in 0.2612 ms
+[20:07:28 INF] HTTP GET /ui/resources/healthchecksui-min.css responded 200 in 0.0925 ms
+[20:07:28 INF] HTTP GET /ui/resources/vendors-dll.js responded 200 in 4.1498 ms
+[20:07:28 INF] HTTP GET /ui/resources/healthchecks-bundle.js responded 200 in 4.3588 ms
+[20:07:28 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.8270 ms
+[20:07:28 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:28 INF] HTTP GET /healthchecks-api responded 200 in 1.9449 ms
+[20:07:29 INF] HTTP POST /hangfire/stats responded 200 in 0.6034 ms
+[20:07:32 INF] HTTP POST /hangfire/stats responded 200 in 1.7284 ms
+[20:07:32 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 1.2340 ms
+[20:07:32 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:32 INF] HTTP GET /healthchecks-api responded 200 in 6.8770 ms
+[20:07:32 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:34 INF] HTTP POST /hangfire/stats responded 200 in 0.3235 ms
+[20:07:35 INF] HTTP GET /healthchecks-webhooks responded 200 in 8.5630 ms
+[20:07:35 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:35 INF] HTTP GET /healthchecks-api responded 200 in 2.5786 ms
+[20:07:37 INF] HTTP POST /hangfire/stats responded 200 in 0.2806 ms
+[20:07:40 INF] HTTP POST /hangfire/stats responded 200 in 0.2982 ms
+[20:07:42 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.1428 ms
+[20:07:42 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:42 INF] HTTP GET /healthchecks-api responded 200 in 2.9713 ms
+[20:07:42 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:43 INF] HTTP POST /hangfire/stats responded 200 in 0.2903 ms
+[20:07:46 INF] HTTP GET /health-ui responded 200 in 0.3180 ms
+[20:07:46 INF] HTTP GET /ui/resources/healthchecksui-min.css responded 200 in 0.2104 ms
+[20:07:46 INF] HTTP GET /ui/resources/vendors-dll.js responded 200 in 7.6531 ms
+[20:07:46 INF] HTTP GET /ui/resources/healthchecks-bundle.js responded 200 in 6.3674 ms
+[20:07:46 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.4748 ms
+[20:07:46 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:46 INF] HTTP GET /healthchecks-api responded 200 in 1.9498 ms
+[20:07:46 INF] HTTP POST /hangfire/stats responded 200 in 0.3600 ms
+[20:07:47 INF] HTTP GET /health-ui responded 200 in 0.0771 ms
+[20:07:47 INF] HTTP GET /ui/resources/healthchecksui-min.css responded 200 in 0.0735 ms
+[20:07:47 INF] HTTP GET /ui/resources/vendors-dll.js responded 200 in 4.3923 ms
+[20:07:47 INF] HTTP GET /ui/resources/healthchecks-bundle.js responded 200 in 5.3639 ms
+[20:07:47 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.1663 ms
+[20:07:47 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:47 INF] HTTP GET /healthchecks-api responded 200 in 1.7258 ms
+[20:07:47 INF] HTTP GET /health-ui responded 200 in 0.1009 ms
+[20:07:47 INF] HTTP GET /ui/resources/healthchecksui-min.css responded 200 in 0.0544 ms
+[20:07:47 INF] HTTP GET /ui/resources/vendors-dll.js responded 200 in 1.9267 ms
+[20:07:47 INF] HTTP GET /ui/resources/healthchecks-bundle.js responded 200 in 2.3523 ms
+[20:07:47 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.0695 ms
+[20:07:47 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:47 INF] HTTP GET /healthchecks-api responded 200 in 1.3213 ms
+[20:07:47 INF] HTTP GET /health-ui responded 200 in 0.0676 ms
+[20:07:47 INF] HTTP GET /ui/resources/healthchecksui-min.css responded 200 in 0.0497 ms
+[20:07:47 INF] HTTP GET /ui/resources/healthchecks-bundle.js responded 200 in 1.8423 ms
+[20:07:47 INF] HTTP GET /ui/resources/vendors-dll.js responded 200 in 2.2303 ms
+[20:07:47 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.1590 ms
+[20:07:47 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:47 INF] HTTP GET /healthchecks-api responded 200 in 1.0686 ms
+[20:07:48 INF] HTTP POST /hangfire/stats responded 200 in 0.4963 ms
+[20:07:51 INF] HTTP POST /hangfire/stats responded 200 in 0.4732 ms
+[20:07:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:54 INF] HTTP POST /hangfire/stats responded 200 in 0.3203 ms
+[20:07:57 INF] HTTP POST /hangfire/stats responded 200 in 0.5390 ms
+[20:07:58 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.4596 ms
+[20:07:58 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:07:58 INF] HTTP GET /healthchecks-api responded 200 in 1.8460 ms
+[20:08:00 INF] HTTP POST /hangfire/stats responded 200 in 0.2867 ms
+[20:08:00 INF] HTTP GET /healthchecks-webhooks responded 200 in 0.1806 ms
+[20:08:01 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:08:01 INF] HTTP GET /healthchecks-api responded 200 in 1.7259 ms
+[20:08:02 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:08:03 INF] HTTP POST /hangfire/stats responded 200 in 0.3175 ms
+[20:08:06 INF] HTTP POST /hangfire/stats responded 200 in 0.2968 ms
+[20:08:07 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "CryptoPrices" AS "c"
+[20:08:07 INF] [Hangfire 🚀] Dakikalık Rapor: Sistemde toplam 153 adet fiyat kaydı var.
+[20:08:09 INF] HTTP POST /hangfire/stats responded 200 in 0.4029 ms
+[20:08:11 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:08:11 INF] HTTP POST /hangfire/stats responded 200 in 0.6743 ms
+[20:08:11 INF] HTTP GET /healthchecks-api responded 200 in 326.1763 ms
+[20:08:12 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:08:14 INF] HTTP POST /hangfire/stats responded 200 in 0.9617 ms
+[20:08:17 INF] HTTP POST /hangfire/stats responded 200 in 0.2429 ms
+[20:08:20 INF] HTTP POST /hangfire/stats responded 200 in 1.6131 ms
+[20:08:22 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:08:23 INF] HTTP POST /hangfire/stats responded 200 in 0.4204 ms
+[20:08:26 INF] HTTP POST /hangfire/stats responded 200 in 0.4573 ms
+[20:08:29 INF] HTTP POST /hangfire/stats responded 200 in 0.3415 ms
+[20:08:32 INF] HTTP POST /hangfire/stats responded 200 in 0.3529 ms
+[20:08:32 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:08:35 INF] HTTP POST /hangfire/stats responded 200 in 0.2282 ms
+[20:08:38 INF] HTTP POST /hangfire/stats responded 200 in 0.8508 ms
+[20:08:41 INF] HTTP POST /hangfire/stats responded 200 in 0.2567 ms
+[20:08:42 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:08:44 INF] HTTP POST /hangfire/stats responded 200 in 0.3907 ms
+[20:08:45 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 1.6856 ms
+[20:08:45 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:08:45 INF] HTTP GET /healthchecks-api responded 200 in 3.8544 ms
+[20:08:47 INF] HTTP POST /hangfire/stats responded 200 in 1.3471 ms
+[20:08:50 INF] HTTP POST /hangfire/stats responded 200 in 0.2532 ms
+[20:08:52 INF] Usage Telemetry: {"id":"31c70000-66f4-f6ce-93c0-08de4a20e7ae","created":"2026-01-02T20:03:51.9576450\u002B03:00","host":{"framework_version":"10.0.1","mass_transit_version":"8.5.7.0","operating_system_version":"Unix 26.1.0","time_zone_info":"(UTC\u002B03:00) T\u00FCrkiye Time","commit_hash":"855cf1752c94ca9498e0c45ce8d09fdc9e957dd6"},"bus":[{"created":"2026-01-02T20:03:51.9658580\u002B03:00","configured":"2026-01-02T20:03:51.9918360\u002B03:00","started":"2026-01-02T20:03:52.6555050\u002B03:00","name":"IBus","endpoints":[{"name":"_bus_","type":"RabbitMQ","prefetch_count":16}]}]}
+[20:08:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:08:53 INF] HTTP POST /hangfire/stats responded 200 in 0.8418 ms
+[20:08:56 INF] HTTP POST /hangfire/stats responded 200 in 0.4483 ms
+[20:08:59 INF] HTTP POST /hangfire/stats responded 200 in 0.6613 ms
+[20:09:02 INF] HTTP POST /hangfire/stats responded 200 in 0.6439 ms
+[20:09:02 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:09:05 INF] HTTP POST /hangfire/stats responded 200 in 0.3035 ms
+[20:09:07 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "CryptoPrices" AS "c"
+[20:09:07 INF] [Hangfire 🚀] Dakikalık Rapor: Sistemde toplam 153 adet fiyat kaydı var.
+[20:09:08 INF] HTTP POST /hangfire/stats responded 200 in 0.2410 ms
+[20:09:11 INF] HTTP POST /hangfire/stats responded 200 in 0.4423 ms
+[20:09:12 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:09:14 INF] HTTP POST /hangfire/stats responded 200 in 0.5658 ms
+[20:09:17 INF] HTTP POST /hangfire/stats responded 200 in 2.4360 ms
+[20:09:20 INF] HTTP POST /hangfire/stats responded 200 in 1.2069 ms
+[20:09:22 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:09:23 INF] HTTP POST /hangfire/stats responded 200 in 0.3812 ms
+[20:09:26 INF] HTTP POST /hangfire/stats responded 200 in 0.3393 ms
+[20:09:29 INF] HTTP POST /hangfire/stats responded 200 in 0.2227 ms
+[20:09:32 INF] HTTP POST /hangfire/stats responded 200 in 0.4170 ms
+[20:09:32 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:09:35 INF] HTTP POST /hangfire/stats responded 200 in 0.3573 ms
+[20:09:38 INF] HTTP POST /hangfire/stats responded 200 in 0.5761 ms
+[20:09:41 INF] HTTP POST /hangfire/stats responded 200 in 0.2403 ms
+[20:09:42 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:09:44 INF] HTTP POST /hangfire/stats responded 200 in 0.4004 ms
+[20:09:47 INF] HTTP POST /hangfire/stats responded 200 in 0.2548 ms
+[20:09:50 INF] HTTP POST /hangfire/stats responded 200 in 0.4818 ms
+[20:09:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:09:53 INF] HTTP POST /hangfire/stats responded 200 in 0.2563 ms
+[20:09:56 INF] HTTP POST /hangfire/stats responded 200 in 0.4131 ms
+[20:09:56 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 1.5655 ms
+[20:09:56 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:09:56 INF] HTTP GET /healthchecks-api responded 200 in 5.0539 ms
+[20:09:59 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.3414 ms
+[20:09:59 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:09:59 INF] HTTP GET /healthchecks-api responded 200 in 3.9997 ms
+[20:09:59 INF] Start processing HTTP request GET http://localhost:9200/
+[20:09:59 INF] Sending HTTP request GET http://localhost:9200/
+[20:09:59 INF] Received HTTP response headers after 15.6834ms - 200
+[20:09:59 INF] End processing HTTP request after 23.9219ms - 200
+[20:09:59 INF] HTTP GET /health responded 200 in 63.0579 ms
+[20:09:59 INF] HTTP POST /hangfire/stats responded 200 in 0.5853 ms
+[20:10:02 INF] HTTP GET /health-ui responded 200 in 0.1614 ms
+[20:10:02 INF] HTTP GET /ui/resources/healthchecksui-min.css responded 200 in 0.1526 ms
+[20:10:02 INF] HTTP GET /ui/resources/vendors-dll.js responded 200 in 8.0295 ms
+[20:10:02 INF] HTTP GET /ui/resources/healthchecks-bundle.js responded 200 in 7.7431 ms
+[20:10:02 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.4934 ms
+[20:10:02 INF] HTTP POST /hangfire/stats responded 200 in 0.2390 ms
+[20:10:02 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:10:02 INF] HTTP GET /healthchecks-api responded 200 in 1.5588 ms
+[20:10:02 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:10:05 INF] HTTP POST /hangfire/stats responded 200 in 0.3187 ms
+[20:10:07 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "CryptoPrices" AS "c"
+[20:10:07 INF] [Hangfire 🚀] Dakikalık Rapor: Sistemde toplam 153 adet fiyat kaydı var.
+[20:10:08 INF] HTTP POST /hangfire/stats responded 200 in 0.2246 ms
+[20:10:11 INF] HTTP POST /hangfire/stats responded 200 in 3.4325 ms
+[20:10:12 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:10:14 INF] HTTP POST /hangfire/stats responded 200 in 1.9570 ms
+[20:10:17 INF] HTTP POST /hangfire/stats responded 200 in 1.0340 ms
+[20:10:20 INF] HTTP POST /hangfire/stats responded 200 in 0.2720 ms
+[20:10:22 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:10:23 INF] HTTP POST /hangfire/stats responded 200 in 1.4700 ms
+[20:10:25 INF] Server ilkay-macbook-air:50993:7bef76c0 caught stopping signal...
+[20:10:25 INF] Server ilkay-macbook-air:50993:7bef76c0 All dispatchers stopped
+[20:10:25 INF] Server ilkay-macbook-air:50993:7bef76c0 successfully reported itself as stopped in 0,1924 ms
+[20:10:25 INF] Server ilkay-macbook-air:50993:7bef76c0 has been stopped in total 4,552 ms
+[20:10:25 INF] Bus stopped: "rabbitmq://localhost/"
+[20:10:36 INF] Initializing UI Database
+[20:10:37 INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+[20:10:37 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+[20:10:37 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Configurations" AS "c")
+[20:10:37 INF] Saving healthchecks configuration to database
+[20:10:37 INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?' (Size = 20), @p2='?' (Size = 28)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Configurations" ("DiscoveryService", "Name", "Uri")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+[20:10:37 INF] Bus started: "rabbitmq://localhost/"
+[20:10:37 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:10:37 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:10:37 INF] Sending HTTP request GET http://localhost:5089/health
+[20:10:37 INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+[20:10:37 INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[20:10:37 INF] Server ilkay-macbook-air:51856:d3fe51d4 successfully announced in 2,9279 ms
+[20:10:37 INF] Server ilkay-macbook-air:51856:d3fe51d4 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[20:10:37 INF] Server ilkay-macbook-air:51856:d3fe51d4 all the dispatchers started
+[20:10:37 WRN] Failed to determine the https port for redirect.
+[20:10:37 INF] Start processing HTTP request GET http://localhost:9200/
+[20:10:37 INF] Sending HTTP request GET http://localhost:9200/
+[20:10:37 INF] Received HTTP response headers after 18.2014ms - 200
+[20:10:37 INF] End processing HTTP request after 24.1307ms - 200
+[20:10:37 INF] Received HTTP response headers after 229.5527ms - 200
+[20:10:37 INF] End processing HTTP request after 233.8995ms - 200
+[20:10:37 INF] HTTP GET /health responded 200 in 184.9177 ms
+[20:10:37 WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[20:10:37 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:10:37 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:10:37 INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?' (DbType = DateTime), @p2='?' (Size = 20), @p3='?' (DbType = DateTime), @p4='?' (DbType = Int32), @p5='?' (Size = 28)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Executions" ("DiscoveryService", "LastExecuted", "Name", "OnStateFrom", "Status", "Uri")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+[20:10:37 INF] Executed DbCommand (0ms) [Parameters=[@p6='?', @p7='?' (DbType = Time), @p8='?' (DbType = Int32), @p9='?' (Size = 13), @p10='?' (DbType = Int32), @p11='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "HealthCheckExecutionEntries" ("Description", "Duration", "HealthCheckExecutionId", "Name", "Status", "Tags")
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING "Id";
+[20:10:37 INF] Executed DbCommand (0ms) [Parameters=[@p0='?', @p1='?' (DbType = Time), @p2='?' (DbType = Int32), @p3='?' (Size = 13), @p4='?' (DbType = Int32), @p5='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "HealthCheckExecutionEntries" ("Description", "Duration", "HealthCheckExecutionId", "Name", "Status", "Tags")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+[20:10:37 INF] Executed DbCommand (0ms) [Parameters=[@p0='?', @p1='?' (DbType = Time), @p2='?' (DbType = Int32), @p3='?' (Size = 16), @p4='?' (DbType = Int32), @p5='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "HealthCheckExecutionEntries" ("Description", "Duration", "HealthCheckExecutionId", "Name", "Status", "Tags")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+[20:10:37 INF] Executed DbCommand (0ms) [Parameters=[@p0='?', @p1='?' (DbType = Time), @p2='?' (DbType = Int32), @p3='?' (Size = 16), @p4='?' (DbType = Int32), @p5='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "HealthCheckExecutionEntries" ("Description", "Duration", "HealthCheckExecutionId", "Name", "Status", "Tags")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+[20:10:37 INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 5), @p1='?' (DbType = Time), @p2='?' (DbType = Int32), @p3='?' (Size = 15), @p4='?' (DbType = Int32), @p5='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "HealthCheckExecutionEntries" ("Description", "Duration", "HealthCheckExecutionId", "Name", "Status", "Tags")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+[20:10:43 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 13.3662 ms
+[20:10:43 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:10:43 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:10:43 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:10:43 INF] HTTP GET /healthchecks-api responded 200 in 92.4011 ms
+[20:10:45 INF] HTTP GET /health-ui responded 200 in 2.0143 ms
+[20:10:45 INF] HTTP GET /ui/resources/healthchecksui-min.css responded 200 in 3.4474 ms
+[20:10:45 INF] HTTP GET /ui/resources/vendors-dll.js responded 200 in 12.4823 ms
+[20:10:45 INF] HTTP GET /ui/resources/healthchecks-bundle.js responded 200 in 10.6708 ms
+[20:10:45 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.4648 ms
+[20:10:45 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:10:45 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:10:45 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:10:45 INF] HTTP GET /healthchecks-api responded 200 in 13.6910 ms
+[20:10:47 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:10:47 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:10:47 INF] Sending HTTP request GET http://localhost:5089/health
+[20:10:47 INF] Start processing HTTP request GET http://localhost:9200/
+[20:10:47 INF] Sending HTTP request GET http://localhost:9200/
+[20:10:47 INF] Received HTTP response headers after 6.0203ms - 200
+[20:10:47 INF] End processing HTTP request after 7.0807ms - 200
+[20:10:47 INF] HTTP GET /health responded 200 in 8.6375 ms
+[20:10:47 INF] Received HTTP response headers after 11.4462ms - 200
+[20:10:47 INF] End processing HTTP request after 12.0982ms - 200
+[20:10:47 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:10:47 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:10:47 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:47 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:47 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:47 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:47 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:47 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:55 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:10:55 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:10:55 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:10:55 INF] HTTP GET /healthchecks-api responded 200 in 5.3586 ms
+[20:10:57 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:10:57 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:10:57 INF] Sending HTTP request GET http://localhost:5089/health
+[20:10:57 INF] Start processing HTTP request GET http://localhost:9200/
+[20:10:57 INF] Sending HTTP request GET http://localhost:9200/
+[20:10:57 INF] Received HTTP response headers after 3.6673ms - 200
+[20:10:57 INF] End processing HTTP request after 4.3276ms - 200
+[20:10:57 INF] HTTP GET /health responded 200 in 5.3375 ms
+[20:10:57 INF] Received HTTP response headers after 6.6528ms - 200
+[20:10:57 INF] End processing HTTP request after 7.2654ms - 200
+[20:10:57 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:10:57 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:10:57 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:57 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:57 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:57 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:57 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:10:57 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:07 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "CryptoPrices" AS "c"
+[20:11:07 INF] [Hangfire 🚀] Dakikalık Rapor: Sistemde toplam 153 adet fiyat kaydı var.
+[20:11:07 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:11:07 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:11:07 INF] Sending HTTP request GET http://localhost:5089/health
+[20:11:07 INF] Start processing HTTP request GET http://localhost:9200/
+[20:11:07 INF] Sending HTTP request GET http://localhost:9200/
+[20:11:07 INF] Received HTTP response headers after 3.7728ms - 200
+[20:11:07 INF] End processing HTTP request after 4.1418ms - 200
+[20:11:07 INF] HTTP GET /health responded 200 in 4.7038 ms
+[20:11:07 INF] Received HTTP response headers after 5.2901ms - 200
+[20:11:07 INF] End processing HTTP request after 5.5427ms - 200
+[20:11:07 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:11:07 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:11:07 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:07 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:07 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:07 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:07 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:07 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:17 INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:11:17 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:11:17 INF] Sending HTTP request GET http://localhost:5089/health
+[20:11:17 INF] Start processing HTTP request GET http://localhost:9200/
+[20:11:17 INF] Sending HTTP request GET http://localhost:9200/
+[20:11:17 INF] Received HTTP response headers after 7.2223ms - 200
+[20:11:17 INF] End processing HTTP request after 8.4399ms - 200
+[20:11:17 INF] HTTP GET /health responded 200 in 12.3958 ms
+[20:11:17 INF] Received HTTP response headers after 19.3311ms - 200
+[20:11:17 INF] End processing HTTP request after 20.263ms - 200
+[20:11:17 INF] Executed DbCommand (1ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:11:17 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:11:17 INF] Executed DbCommand (1ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:17 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:17 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:17 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:17 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:17 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:27 INF] HTTP GET /hangfire/jobs/details/cd0ba272-72aa-48ef-973a-8ab86ed4a466 responded 200 in 72.9081 ms
+[20:11:27 INF] HTTP GET /hangfire/css-dark182202093954213 responded 200 in 6.8162 ms
+[20:11:27 INF] HTTP GET /hangfire/css182201374197485 responded 200 in 15.6123 ms
+[20:11:27 INF] HTTP GET /hangfire/js182201507171600 responded 200 in 17.4305 ms
+[20:11:28 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:11:28 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:11:28 INF] Sending HTTP request GET http://localhost:5089/health
+[20:11:28 INF] Start processing HTTP request GET http://localhost:9200/
+[20:11:28 INF] Sending HTTP request GET http://localhost:9200/
+[20:11:28 INF] Received HTTP response headers after 3.5149ms - 200
+[20:11:28 INF] End processing HTTP request after 3.8422ms - 200
+[20:11:28 INF] HTTP GET /health responded 200 in 5.3135 ms
+[20:11:28 INF] Received HTTP response headers after 5.9892ms - 200
+[20:11:28 INF] End processing HTTP request after 6.2892ms - 200
+[20:11:28 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:11:28 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:11:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:30 INF] HTTP POST /hangfire/stats responded 200 in 26.1348 ms
+[20:11:31 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 1.8597 ms
+[20:11:31 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:11:31 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:11:31 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:11:31 INF] HTTP GET /healthchecks-api responded 200 in 13.3045 ms
+[20:11:33 INF] HTTP POST /hangfire/stats responded 200 in 1.0181 ms
+[20:11:35 INF] HTTP POST /hangfire/stats responded 200 in 2.1805 ms
+[20:11:37 INF] HTTP POST /hangfire/stats responded 200 in 0.6759 ms
+[20:11:38 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:11:38 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:11:38 INF] Sending HTTP request GET http://localhost:5089/health
+[20:11:38 INF] Start processing HTTP request GET http://localhost:9200/
+[20:11:38 INF] Sending HTTP request GET http://localhost:9200/
+[20:11:38 INF] Received HTTP response headers after 3.2974ms - 200
+[20:11:38 INF] End processing HTTP request after 4.0335ms - 200
+[20:11:38 INF] HTTP GET /health responded 200 in 4.9808 ms
+[20:11:38 INF] Received HTTP response headers after 6.3469ms - 200
+[20:11:38 INF] End processing HTTP request after 6.8573ms - 200
+[20:11:38 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:11:38 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:11:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:38 INF] HTTP GET /hangfire/jobs/enqueued responded 200 in 13.0321 ms
+[20:11:39 INF] HTTP GET /hangfire/ responded 200 in 18.5600 ms
+[20:11:41 INF] HTTP GET /hangfire/recurring responded 200 in 21.3002 ms
+[20:11:43 INF] HTTP POST /hangfire/stats responded 200 in 0.6022 ms
+[20:11:45 INF] HTTP POST /hangfire/stats responded 200 in 5.1187 ms
+[20:11:47 INF] HTTP POST /hangfire/stats responded 200 in 0.8453 ms
+[20:11:48 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:11:48 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:11:48 INF] Sending HTTP request GET http://localhost:5089/health
+[20:11:48 INF] Start processing HTTP request GET http://localhost:9200/
+[20:11:48 INF] Sending HTTP request GET http://localhost:9200/
+[20:11:48 INF] Received HTTP response headers after 5.4572ms - 200
+[20:11:48 INF] End processing HTTP request after 6.3289ms - 200
+[20:11:49 INF] HTTP POST /hangfire/stats responded 200 in 2.0101 ms
+[20:11:51 INF] HTTP POST /hangfire/stats responded 200 in 1.3008 ms
+[20:11:52 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 6.4019 ms
+[20:11:52 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:11:52 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:11:52 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:11:52 INF] HTTP GET /healthchecks-api responded 200 in 17.3087 ms
+[20:11:53 INF] HTTP POST /hangfire/stats responded 200 in 1.3710 ms
+[20:11:53 ERR] Health check Redis Cache ⚡ with status "Unhealthy" completed after 5571.1534ms with message 'null'
+StackExchange.Redis.RedisConnectionException: The message timed out in the backlog attempting to send because no connection became available (5000ms) - Last Connection Exception: SocketClosed (ReadEndOfStream, last-recv: 0) on localhost:6379/Interactive, Idle/MarkProcessed, last: CLIENT, origin: ReadFromPipe, outstanding: 0, last-read: 0s ago, last-write: 9s ago, keep-alive: 60s, state: ConnectedEstablished, mgr: 6 of 10 available, in: 0, in-pipe: 0, out-pipe: 0, last-heartbeat: 0s ago, last-mbeat: 0s ago, global: 0s ago, v: 2.10.1.65101, command=PING, timeout: 5000, inst: 0, qu: 0, qs: 0, aw: False, bw: CheckingForTimeout, last-in: 0, cur-in: 0, sync-ops: 0, async-ops: 15, serverEndpoint: localhost:6379, conn-sec: n/a, aoc: 1, mc: 1/1/0, mgr: 10 of 10 available, clientName: Ilkay-MacBook-Air(SE.Redis-v2.10.1.65101), IOCP: (Busy=0,Free=1000,Min=1,Max=1000), WORKER: (Busy=0,Free=32767,Min=8,Max=32767), POOL: (Threads=7,QueuedItems=0,CompletedItems=981,Timers=23), v: 2.10.1.65101 (Please take a look at this article for some common client-side issues that can cause timeouts: https://stackexchange.github.io/StackExchange.Redis/Timeouts)
+ ---> StackExchange.Redis.RedisConnectionException: SocketClosed (ReadEndOfStream, last-recv: 0) on localhost:6379/Interactive, Idle/MarkProcessed, last: CLIENT, origin: ReadFromPipe, outstanding: 0, last-read: 0s ago, last-write: 9s ago, keep-alive: 60s, state: ConnectedEstablished, mgr: 6 of 10 available, in: 0, in-pipe: 0, out-pipe: 0, last-heartbeat: 0s ago, last-mbeat: 0s ago, global: 0s ago, v: 2.10.1.65101
+   --- End of inner exception stack trace ---
+   at HealthChecks.Redis.RedisHealthCheck.CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.Redis/RedisHealthCheck.cs:line 75
+[20:11:53 ERR] HTTP GET /health responded 503 in 5591.6008 ms
+[20:11:53 INF] Received HTTP response headers after 5592.9519ms - 503
+[20:11:53 INF] End processing HTTP request after 5593.5503ms - 503
+[20:11:53 INF] Executed DbCommand (1ms) [Parameters=[@ToLower='?' (Size = 20), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "f"."Id", "f"."HealthCheckName", "f"."IsUpAndRunning", "f"."LastNotified"
+FROM "Failures" AS "f"
+WHERE lower("f"."HealthCheckName") = @ToLower
+ORDER BY "f"."LastNotified" DESC
+LIMIT min(@p, 2)
+[20:11:53 INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 20), @p1='?' (DbType = Boolean), @p2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Failures" ("HealthCheckName", "IsUpAndRunning", "LastNotified")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+[20:11:53 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:11:53 INF] Executed DbCommand (0ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0, "OnStateFrom" = @p1, "Status" = @p2
+WHERE "Id" = @p3
+RETURNING 1;
+[20:11:53 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:53 INF] Executed DbCommand (0ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (Size = 1104), @p1='?' (DbType = Time), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Description" = @p0, "Duration" = @p1, "Status" = @p2
+WHERE "Id" = @p3
+RETURNING 1;
+[20:11:53 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:53 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:53 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:11:53 INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 1104), @p1='?' (DbType = Int32), @p2='?' (Size = 13), @p3='?' (DbType = DateTime), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "HealthCheckExecutionHistories" ("Description", "HealthCheckExecutionId", "Name", "On", "Status")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "Id";
+[20:11:56 INF] HTTP POST /hangfire/stats responded 200 in 0.9904 ms
+[20:11:58 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.4662 ms
+[20:11:58 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:11:58 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:11:58 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:11:58 INF] HTTP GET /healthchecks-api responded 200 in 9.9632 ms
+[20:11:59 INF] HTTP POST /hangfire/stats responded 200 in 0.5987 ms
+[20:12:02 INF] HTTP POST /hangfire/stats responded 200 in 0.5915 ms
+[20:12:03 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:12:03 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:12:03 INF] Sending HTTP request GET http://localhost:5089/health
+[20:12:03 INF] Start processing HTTP request GET http://localhost:9200/
+[20:12:03 INF] Sending HTTP request GET http://localhost:9200/
+[20:12:03 INF] Received HTTP response headers after 5.0321ms - 200
+[20:12:03 INF] End processing HTTP request after 5.6184ms - 200
+[20:12:03 ERR] Health check Redis Cache ⚡ with status "Unhealthy" completed after 6.9373ms with message 'null'
+StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s). Error connecting right now. To allow this multiplexer to continue retrying until it's able to connect, use abortConnect=false in your connection string or AbortOnConnectFail=false; in your code.
+   at StackExchange.Redis.ConnectionMultiplexer.ConnectImplAsync(ConfigurationOptions configuration, TextWriter writer, Nullable`1 serverType) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 596
+   at HealthChecks.Redis.RedisHealthCheck.TimeoutAsync(Task`1 task, CancellationToken cancellationToken) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.Redis/RedisHealthCheck.cs:line 124
+   at HealthChecks.Redis.RedisHealthCheck.CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken) in /home/runner/work/AspNetCore.Diagnostics.HealthChecks/AspNetCore.Diagnostics.HealthChecks/src/HealthChecks.Redis/RedisHealthCheck.cs:line 54
+[20:12:03 ERR] HTTP GET /health responded 503 in 12.8635 ms
+[20:12:03 INF] Received HTTP response headers after 14.1947ms - 503
+[20:12:03 INF] End processing HTTP request after 14.732ms - 503
+[20:12:03 INF] Executed DbCommand (0ms) [Parameters=[@ToLower='?' (Size = 20), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "f"."Id", "f"."HealthCheckName", "f"."IsUpAndRunning", "f"."LastNotified"
+FROM "Failures" AS "f"
+WHERE lower("f"."HealthCheckName") = @ToLower
+ORDER BY "f"."LastNotified" DESC
+LIMIT min(@p, 2)
+[20:12:03 INF] Notification is sent on same window time.
+[20:12:03 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:12:03 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:03 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:03 INF] Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (Size = 249), @p1='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Description" = @p0, "Duration" = @p1
+WHERE "Id" = @p2
+RETURNING 1;
+[20:12:03 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:03 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:03 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:05 INF] HTTP POST /hangfire/stats responded 200 in 0.9030 ms
+[20:12:07 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.7123 ms
+[20:12:07 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:12:07 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:12:07 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:12:07 INF] HTTP GET /healthchecks-api responded 200 in 11.6246 ms
+[20:12:07 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "CryptoPrices" AS "c"
+[20:12:07 INF] [Hangfire 🚀] Dakikalık Rapor: Sistemde toplam 153 adet fiyat kaydı var.
+[20:12:07 INF] HTTP POST /hangfire/stats responded 200 in 0.5990 ms
+[20:12:10 INF] HTTP POST /hangfire/stats responded 200 in 0.5405 ms
+[20:12:13 INF] HTTP POST /hangfire/stats responded 200 in 9.4445 ms
+[20:12:13 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:12:13 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:12:13 INF] Sending HTTP request GET http://localhost:5089/health
+[20:12:13 INF] Start processing HTTP request GET http://localhost:9200/
+[20:12:13 INF] Sending HTTP request GET http://localhost:9200/
+[20:12:13 INF] Received HTTP response headers after 3.809ms - 200
+[20:12:13 INF] End processing HTTP request after 4.4669ms - 200
+[20:12:16 INF] HTTP POST /hangfire/stats responded 200 in 1.9328 ms
+[20:12:18 INF] HTTP GET /health responded 200 in 5024.0020 ms
+[20:12:18 INF] Received HTTP response headers after 5026.9372ms - 200
+[20:12:18 INF] End processing HTTP request after 5027.8187ms - 200
+[20:12:18 INF] Executed DbCommand (1ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:12:18 INF] Executed DbCommand (0ms) [Parameters=[@ToLower='?' (Size = 20), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "f"."Id", "f"."HealthCheckName", "f"."IsUpAndRunning", "f"."LastNotified"
+FROM "Failures" AS "f"
+WHERE lower("f"."HealthCheckName") = @ToLower
+ORDER BY "f"."LastNotified" DESC
+LIMIT min(@p, 2)
+[20:12:18 INF] Executed DbCommand (29ms) [Parameters=[@p0='?' (Size = 20), @p1='?' (DbType = Boolean), @p2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Failures" ("HealthCheckName", "IsUpAndRunning", "LastNotified")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+[20:12:18 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:12:18 INF] Executed DbCommand (0ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0, "OnStateFrom" = @p1, "Status" = @p2
+WHERE "Id" = @p3
+RETURNING 1;
+[20:12:18 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:18 INF] Executed DbCommand (0ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?', @p1='?' (DbType = Time), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Description" = @p0, "Duration" = @p1, "Status" = @p2
+WHERE "Id" = @p3
+RETURNING 1;
+[20:12:18 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:18 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:18 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:18 INF] Executed DbCommand (0ms) [Parameters=[@p0='?', @p1='?' (DbType = Int32), @p2='?' (Size = 13), @p3='?' (DbType = DateTime), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "HealthCheckExecutionHistories" ("Description", "HealthCheckExecutionId", "Name", "On", "Status")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "Id";
+[20:12:19 INF] HTTP POST /hangfire/stats responded 200 in 3.8789 ms
+[20:12:19 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.8972 ms
+[20:12:19 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:12:19 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:12:19 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:12:19 INF] HTTP GET /healthchecks-api responded 200 in 4.5809 ms
+[20:12:20 INF] HTTP GET /health-ui responded 200 in 0.5245 ms
+[20:12:20 INF] HTTP GET /ui/resources/healthchecksui-min.css responded 200 in 0.0952 ms
+[20:12:20 INF] HTTP GET /ui/resources/vendors-dll.js responded 200 in 2.1854 ms
+[20:12:20 INF] HTTP GET /ui/resources/healthchecks-bundle.js responded 200 in 2.6436 ms
+[20:12:20 INF] HTTP GET /healthchecks-api/ui-settings responded 200 in 0.0860 ms
+[20:12:20 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:12:20 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:12:20 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:12:20 INF] HTTP GET /healthchecks-api responded 200 in 2.3938 ms
+[20:12:21 INF] HTTP POST /hangfire/stats responded 200 in 0.9064 ms
+[20:12:24 INF] HTTP POST /hangfire/stats responded 200 in 3.7871 ms
+[20:12:27 INF] HTTP POST /hangfire/stats responded 200 in 3.0975 ms
+[20:12:28 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:12:28 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:12:28 INF] Sending HTTP request GET http://localhost:5089/health
+[20:12:28 INF] Start processing HTTP request GET http://localhost:9200/
+[20:12:28 INF] Sending HTTP request GET http://localhost:9200/
+[20:12:28 INF] Received HTTP response headers after 13.0667ms - 200
+[20:12:28 INF] End processing HTTP request after 13.7768ms - 200
+[20:12:28 INF] HTTP GET /health responded 200 in 16.2054 ms
+[20:12:28 INF] Received HTTP response headers after 19.8303ms - 200
+[20:12:28 INF] End processing HTTP request after 20.3872ms - 200
+[20:12:28 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:12:28 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:12:28 INF] Executed DbCommand (1ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:28 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:30 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:12:30 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:12:30 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:12:30 INF] HTTP GET /healthchecks-api responded 200 in 10.4687 ms
+[20:12:30 INF] HTTP POST /hangfire/stats responded 200 in 0.6635 ms
+[20:12:33 INF] HTTP POST /hangfire/stats responded 200 in 2.8405 ms
+[20:12:36 INF] HTTP POST /hangfire/stats responded 200 in 0.6033 ms
+[20:12:38 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:12:38 INF] Start processing HTTP request GET http://localhost:5089/health
+[20:12:38 INF] Sending HTTP request GET http://localhost:5089/health
+[20:12:38 INF] Start processing HTTP request GET http://localhost:9200/
+[20:12:38 INF] Sending HTTP request GET http://localhost:9200/
+[20:12:38 INF] Received HTTP response headers after 13.3103ms - 200
+[20:12:38 INF] End processing HTTP request after 13.8217ms - 200
+[20:12:38 INF] HTTP GET /health responded 200 in 15.0294 ms
+[20:12:38 INF] Received HTTP response headers after 19.6522ms - 200
+[20:12:38 INF] End processing HTTP request after 19.9775ms - 200
+[20:12:38 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:12:38 INF] Executed DbCommand (0ms) [Parameters=[@configuration_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status", "h0"."Id", "h0"."Description", "h0"."Duration", "h0"."HealthCheckExecutionId", "h0"."Name", "h0"."Status", "h0"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @configuration_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionHistories" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h0" ON "e0"."Id" = "h0"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Id"
+[20:12:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Executions" SET "LastExecuted" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:38 INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "HealthCheckExecutionEntries" SET "Duration" = @p0
+WHERE "Id" = @p1
+RETURNING 1;
+[20:12:39 INF] HTTP POST /hangfire/stats responded 200 in 5.2041 ms
+[20:12:40 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."DiscoveryService", "c"."Name", "c"."Uri"
+FROM "Configurations" AS "c"
+[20:12:40 INF] Executed DbCommand (0ms) [Parameters=[@item_Name='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."DiscoveryService", "e0"."LastExecuted", "e0"."Name", "e0"."OnStateFrom", "e0"."Status", "e0"."Uri", "h"."Id", "h"."Description", "h"."Duration", "h"."HealthCheckExecutionId", "h"."Name", "h"."Status", "h"."Tags"
+FROM (
+    SELECT "e"."Id", "e"."DiscoveryService", "e"."LastExecuted", "e"."Name", "e"."OnStateFrom", "e"."Status", "e"."Uri"
+    FROM "Executions" AS "e"
+    WHERE "e"."Name" = @item_Name
+    LIMIT 2
+) AS "e0"
+LEFT JOIN "HealthCheckExecutionEntries" AS "h" ON "e0"."Id" = "h"."HealthCheckExecutionId"
+ORDER BY "e0"."Id", "h"."Name"
+[20:12:40 INF] Executed DbCommand (0ms) [Parameters=[@execution_Id='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."Id", "h"."Description", "h"."HealthCheckExecutionId", "h"."Name", "h"."On", "h"."Status"
+FROM "HealthCheckExecutionHistories" AS "h"
+WHERE "h"."HealthCheckExecutionId" = @execution_Id
+ORDER BY "h"."On" DESC
+LIMIT @p
+[20:12:40 INF] HTTP GET /healthchecks-api responded 200 in 6.6121 ms
+[20:12:40 INF] Server ilkay-macbook-air:51856:d3fe51d4 caught stopping signal...
+[20:12:40 INF] Server ilkay-macbook-air:51856:d3fe51d4 All dispatchers stopped
+[20:12:40 INF] Server ilkay-macbook-air:51856:d3fe51d4 successfully reported itself as stopped in 0,3745 ms
+[20:12:40 INF] Server ilkay-macbook-air:51856:d3fe51d4 has been stopped in total 6,1576 ms
+[20:12:40 INF] Bus stopped: "rabbitmq://localhost/"

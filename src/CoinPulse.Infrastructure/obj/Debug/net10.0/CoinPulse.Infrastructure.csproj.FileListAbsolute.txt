@@ -13,3 +13,4 @@
 /Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Infrastructure/obj/Debug/net10.0/refint/CoinPulse.Infrastructure.dll
 /Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Infrastructure/obj/Debug/net10.0/CoinPulse.Infrastructure.pdb
 /Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Infrastructure/obj/Debug/net10.0/ref/CoinPulse.Infrastructure.dll
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Infrastructure/obj/Debug/net10.0/CoinPulse.Infrastructure.sourcelink.json

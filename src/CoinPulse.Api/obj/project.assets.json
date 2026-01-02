@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net10.0": {
+      "AspNetCore.HealthChecks.Network/9.0.0": {
+        "type": "package",
+        "dependencies": {
+          "SSH.NET": "2023.0.0"
+        },
+        "compile": {
+          "lib/net8.0/HealthChecks.Network.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/HealthChecks.Network.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "AspNetCore.HealthChecks.Rabbitmq/9.0.0": {
         "type": "package",
         "dependencies": {
@@ -30,6 +46,22 @@
         },
         "runtime": {
           "lib/net8.0/HealthChecks.Redis.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AspNetCore.HealthChecks.Sqlite/9.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.Sqlite": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/HealthChecks.Sqlite.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/HealthChecks.Sqlite.dll": {
             "related": ".xml"
           }
         }
@@ -100,6 +132,36 @@
         },
         "runtime": {
           "lib/net8.0/HealthChecks.UI.Data.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AspNetCore.HealthChecks.UI.SQLite.Storage/9.0.0": {
+        "type": "package",
+        "dependencies": {
+          "AspNetCore.HealthChecks.UI.Data": "9.0.0",
+          "Microsoft.EntityFrameworkCore.Sqlite": "8.0.11"
+        },
+        "compile": {
+          "lib/net8.0/HealthChecks.UI.SQLite.Storage.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/HealthChecks.UI.SQLite.Storage.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AspNetCore.HealthChecks.Uris/9.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/HealthChecks.Uris.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/HealthChecks.Uris.dll": {
             "related": ".xml"
           }
         }
@@ -1078,6 +1140,19 @@
           }
         }
       },
+      "Microsoft.Data.Sqlite/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.Sqlite.Core": "8.0.0",
+          "SQLitePCLRaw.bundle_e_sqlite3": "2.1.6"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        }
+      },
       "Microsoft.Data.Sqlite.Core/10.0.1": {
         "type": "package",
         "dependencies": {
@@ -1661,6 +1736,35 @@
           "lib/net6.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
+      "SSH.NET/2023.0.0": {
+        "type": "package",
+        "dependencies": {
+          "SshNet.Security.Cryptography": "[1.3.0]"
+        },
+        "compile": {
+          "lib/net7.0/Renci.SshNet.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Renci.SshNet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SshNet.Security.Cryptography/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SshNet.Security.Cryptography.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SshNet.Security.Cryptography.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "StackExchange.Redis/2.10.1": {
         "type": "package",
         "dependencies": {
@@ -2027,6 +2131,22 @@
     }
   },
   "libraries": {
+    "AspNetCore.HealthChecks.Network/9.0.0": {
+      "sha512": "Lke7ksxhzZK8qZhSrmxnhdOHkKInzVIdGk7JBAnROQ6M66nuO9ja6ShC0osw83oE+GZazkO+F36gfwD8HlHrXA==",
+      "type": "package",
+      "path": "aspnetcore.healthchecks.network/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnetcore.healthchecks.network.9.0.0.nupkg.sha512",
+        "aspnetcore.healthchecks.network.nuspec",
+        "icon.png",
+        "lib/net8.0/HealthChecks.Network.dll",
+        "lib/net8.0/HealthChecks.Network.xml",
+        "lib/netstandard2.0/HealthChecks.Network.dll",
+        "lib/netstandard2.0/HealthChecks.Network.xml"
+      ]
+    },
     "AspNetCore.HealthChecks.Rabbitmq/9.0.0": {
       "sha512": "7WSQ7EwioA5niakzzLtGVcZMEOh+42fSwrI24vnNsT7gZuVGOViNekyz38G6wBPYKcpL/lUkMdg3ZaCiZTi/Dw==",
       "type": "package",
@@ -2058,6 +2178,22 @@
         "lib/net8.0/HealthChecks.Redis.xml",
         "lib/netstandard2.0/HealthChecks.Redis.dll",
         "lib/netstandard2.0/HealthChecks.Redis.xml"
+      ]
+    },
+    "AspNetCore.HealthChecks.Sqlite/9.0.0": {
+      "sha512": "SHpWYRR7jh+OIERWK2iz/LhmhA17dL91J67J+0Pm/pkyEg6GyVYNAJzvj2SJPZo7Gf8oK6YVmLzosWbHck/eQQ==",
+      "type": "package",
+      "path": "aspnetcore.healthchecks.sqlite/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnetcore.healthchecks.sqlite.9.0.0.nupkg.sha512",
+        "aspnetcore.healthchecks.sqlite.nuspec",
+        "icon.png",
+        "lib/net8.0/HealthChecks.Sqlite.dll",
+        "lib/net8.0/HealthChecks.Sqlite.xml",
+        "lib/netstandard2.0/HealthChecks.Sqlite.dll",
+        "lib/netstandard2.0/HealthChecks.Sqlite.xml"
       ]
     },
     "AspNetCore.HealthChecks.UI/9.0.0": {
@@ -2115,6 +2251,36 @@
         "icon.png",
         "lib/net8.0/HealthChecks.UI.Data.dll",
         "lib/net8.0/HealthChecks.UI.Data.xml"
+      ]
+    },
+    "AspNetCore.HealthChecks.UI.SQLite.Storage/9.0.0": {
+      "sha512": "vKe4kCKNtcZPmrlL6gjZIr1rFHftqkA1xeJKL59gxu2mp55bMcplyn2WM09Dexeno7IEVojZjm2l6cQkldsfng==",
+      "type": "package",
+      "path": "aspnetcore.healthchecks.ui.sqlite.storage/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnetcore.healthchecks.ui.sqlite.storage.9.0.0.nupkg.sha512",
+        "aspnetcore.healthchecks.ui.sqlite.storage.nuspec",
+        "icon.png",
+        "lib/net8.0/HealthChecks.UI.SQLite.Storage.dll",
+        "lib/net8.0/HealthChecks.UI.SQLite.Storage.xml"
+      ]
+    },
+    "AspNetCore.HealthChecks.Uris/9.0.0": {
+      "sha512": "XYdNlA437KeF8p9qOpZFyNqAN+c0FXt/JjTvzH/Qans0q0O3pPE8KPnn39ucQQjR/Roum1vLTP3kXiUs8VHyuA==",
+      "type": "package",
+      "path": "aspnetcore.healthchecks.uris/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnetcore.healthchecks.uris.9.0.0.nupkg.sha512",
+        "aspnetcore.healthchecks.uris.nuspec",
+        "icon.png",
+        "lib/net8.0/HealthChecks.Uris.dll",
+        "lib/net8.0/HealthChecks.Uris.xml",
+        "lib/netstandard2.0/HealthChecks.Uris.dll",
+        "lib/netstandard2.0/HealthChecks.Uris.xml"
       ]
     },
     "Elastic.Clients.Elasticsearch/8.15.0": {
@@ -3703,6 +3869,19 @@
         "microsoft.codeanalysis.workspaces.msbuild.nuspec"
       ]
     },
+    "Microsoft.Data.Sqlite/8.0.0": {
+      "sha512": "H+iC5IvkCCKSNHXzL3JARvDn7VpkvuJM91KVB89sKjeTF/KX/BocNNh93ZJtX5MCQKb/z4yVKgkU2sVIq+xKfg==",
+      "type": "package",
+      "path": "microsoft.data.sqlite/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/_._",
+        "microsoft.data.sqlite.8.0.0.nupkg.sha512",
+        "microsoft.data.sqlite.nuspec"
+      ]
+    },
     "Microsoft.Data.Sqlite.Core/10.0.1": {
       "sha512": "ACiR0/BskX5iKL0q9oYSdO46Igc2rD867Vd+RvM/0CU0+7dn4R40vIQPUWQkza5EGfc4Ts3DinnB8jo7WgQOTg==",
       "type": "package",
@@ -4392,6 +4571,62 @@
         "sqlitepclraw.provider.e_sqlite3.nuspec"
       ]
     },
+    "SSH.NET/2023.0.0": {
+      "sha512": "g+3VDUrYhm0sqSxmlQFgRFrmBxhQvVh4pfn4pqjkX7WXE3tTjt1tIsOtjuz3mz/5s8gFFQVRydwCJ7Ohs54sJA==",
+      "type": "package",
+      "path": "ssh.net/2023.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/Renci.SshNet.dll",
+        "lib/net462/Renci.SshNet.xml",
+        "lib/net6.0/Renci.SshNet.dll",
+        "lib/net6.0/Renci.SshNet.xml",
+        "lib/net7.0/Renci.SshNet.dll",
+        "lib/net7.0/Renci.SshNet.xml",
+        "lib/netstandard2.0/Renci.SshNet.dll",
+        "lib/netstandard2.0/Renci.SshNet.xml",
+        "lib/netstandard2.1/Renci.SshNet.dll",
+        "lib/netstandard2.1/Renci.SshNet.xml",
+        "ssh.net.2023.0.0.nupkg.sha512",
+        "ssh.net.nuspec"
+      ]
+    },
+    "SshNet.Security.Cryptography/1.3.0": {
+      "sha512": "5pBIXRjcSO/amY8WztpmNOhaaCNHY/B6CcYDI7FSTgqSyo/ZUojlLiKcsl+YGbxQuLX439qIkMfP0PHqxqJi/Q==",
+      "type": "package",
+      "path": "sshnet.security.cryptography/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/SshNet.Security.Cryptography.dll",
+        "lib/net20/SshNet.Security.Cryptography.xml",
+        "lib/net40/SshNet.Security.Cryptography.dll",
+        "lib/net40/SshNet.Security.Cryptography.xml",
+        "lib/net45/SshNet.Security.Cryptography.dll",
+        "lib/net45/SshNet.Security.Cryptography.xml",
+        "lib/netstandard1.0/SshNet.Security.Cryptography.dll",
+        "lib/netstandard1.0/SshNet.Security.Cryptography.xml",
+        "lib/netstandard1.3/SshNet.Security.Cryptography.dll",
+        "lib/netstandard1.3/SshNet.Security.Cryptography.xml",
+        "lib/netstandard2.0/SshNet.Security.Cryptography.dll",
+        "lib/netstandard2.0/SshNet.Security.Cryptography.xml",
+        "lib/portable-net45+win8+wpa81/SshNet.Security.Cryptography.dll",
+        "lib/portable-net45+win8+wpa81/SshNet.Security.Cryptography.xml",
+        "lib/sl4/SshNet.Security.Cryptography.dll",
+        "lib/sl4/SshNet.Security.Cryptography.xml",
+        "lib/sl5/SshNet.Security.Cryptography.dll",
+        "lib/sl5/SshNet.Security.Cryptography.xml",
+        "lib/uap10.0/SshNet.Security.Cryptography.dll",
+        "lib/uap10.0/SshNet.Security.Cryptography.xml",
+        "lib/wp71/SshNet.Security.Cryptography.dll",
+        "lib/wp71/SshNet.Security.Cryptography.xml",
+        "lib/wp8/SshNet.Security.Cryptography.dll",
+        "lib/wp8/SshNet.Security.Cryptography.xml",
+        "sshnet.security.cryptography.1.3.0.nupkg.sha512",
+        "sshnet.security.cryptography.nuspec"
+      ]
+    },
     "StackExchange.Redis/2.10.1": {
       "sha512": "se08WZvD42H3bV4XBW07pupTiE2/72qStKyi/lRqqcijksFWfRtwLTuhFtZ4OX19f4+we/2qruFZBXYJBFc8PQ==",
       "type": "package",
@@ -4924,10 +5159,14 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "AspNetCore.HealthChecks.Network >= 9.0.0",
       "AspNetCore.HealthChecks.Rabbitmq >= 9.0.0",
       "AspNetCore.HealthChecks.Redis >= 9.0.0",
+      "AspNetCore.HealthChecks.Sqlite >= 9.0.0",
       "AspNetCore.HealthChecks.UI >= 9.0.0",
       "AspNetCore.HealthChecks.UI.Client >= 9.0.0",
+      "AspNetCore.HealthChecks.UI.SQLite.Storage >= 9.0.0",
+      "AspNetCore.HealthChecks.Uris >= 9.0.0",
       "CoinPulse.Core >= 1.0.0",
       "CoinPulse.Infrastructure >= 1.0.0",
       "Hangfire >= 1.8.22",
@@ -4988,6 +5227,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "AspNetCore.HealthChecks.Network": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
           "AspNetCore.HealthChecks.Rabbitmq": {
             "target": "Package",
             "version": "[9.0.0, )"
@@ -4996,11 +5239,23 @@
             "target": "Package",
             "version": "[9.0.0, )"
           },
+          "AspNetCore.HealthChecks.Sqlite": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
           "AspNetCore.HealthChecks.UI": {
             "target": "Package",
             "version": "[9.0.0, )"
           },
           "AspNetCore.HealthChecks.UI.Client": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
+          "AspNetCore.HealthChecks.UI.SQLite.Storage": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
+          "AspNetCore.HealthChecks.Uris": {
             "target": "Package",
             "version": "[9.0.0, )"
           },

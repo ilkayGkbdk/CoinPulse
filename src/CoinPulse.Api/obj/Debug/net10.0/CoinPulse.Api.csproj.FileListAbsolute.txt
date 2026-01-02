@@ -260,3 +260,10 @@
 /Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/bin/Debug/net10.0/Serilog.Sinks.Console.dll
 /Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/bin/Debug/net10.0/Serilog.Sinks.Debug.dll
 /Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/bin/Debug/net10.0/Serilog.Sinks.File.dll
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/bin/Debug/net10.0/HealthChecks.Network.dll
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/bin/Debug/net10.0/HealthChecks.Sqlite.dll
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/bin/Debug/net10.0/HealthChecks.Uris.dll
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/bin/Debug/net10.0/Renci.SshNet.dll
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/bin/Debug/net10.0/SshNet.Security.Cryptography.dll
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/obj/Debug/net10.0/CoinPulse.Api.sourcelink.json
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Api/bin/Debug/net10.0/HealthChecks.UI.SQLite.Storage.dll

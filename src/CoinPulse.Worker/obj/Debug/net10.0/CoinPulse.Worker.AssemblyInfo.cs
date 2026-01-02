@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoinPulse.Worker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e68913ebc148bb0ef9a127cc017cb142b1fca20")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoinPulse.Worker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoinPulse.Worker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
