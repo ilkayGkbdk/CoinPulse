@@ -1,0 +1,32 @@
+# .NET Build Folders (Gereksiz Derleme Dosyaları)
+bin/
+obj/
+
+# User Specific files (Kullanıcı Ayarları)
+*.user
+*.userosscache
+*.suo
+
+# IDE Settings (VS Code & Rider)
+.vscode/
+.idea/
+
+# Database (Veritabanı dosyalarını ASLA yükleme!)
+*.db
+*.db-shm
+*.db-wal
+
+# Logs (Serilog klasörü)
+logs/
+
+# MacOS System Files
+.DS_Store
+
+# Docker (Local override dosyaları)
+docker-compose.override.yml
+
+# Test Results
+TestResults/
+
+# Publish output
+**/publish/

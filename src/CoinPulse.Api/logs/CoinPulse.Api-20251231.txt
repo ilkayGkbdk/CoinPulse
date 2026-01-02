@@ -1,4 +1,0 @@
-[18:25:12 INF] Bus started: "rabbitmq://localhost/"
-[18:25:36 WRN] Failed to determine the https port for redirect.
-[18:25:36 INF] HTTP POST /api/prices responded 202 in 182.8028 ms
-[18:25:46 INF] Bus stopped: "rabbitmq://localhost/"
