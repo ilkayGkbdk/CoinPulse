@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoinPulse.Core\CoinPulse.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Elastic.Clients.Elasticsearch" Version="8.15.0" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.10.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Caching/" />
+    <Folder Include="Data/" />
+    <Folder Include="Logging/" />
+    <Folder Include="Search/" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # 1. RabbitMQ: Mesaj Kuyruğu
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: coinpulse-rabbitmq
+    ports:
+      - "5672:5672" # Uygulama iletişimi
+      - "15672:15672" # Yönetim Paneli (User: guest, Pass: guest)
+    networks:
+      - coinpulse-net
+
+  # 2. Redis: Cache ve Distributed Lock
+  redis:
+    image: redis:alpine
+    container_name: coinpulse-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - coinpulse-net
+
+  # 3. Elasticsearch: Loglama ve Karmaşık Arama
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.0
+    container_name: coinpulse-elastic
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false # Dev ortamı için güvenliği kapatıyoruz
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # RAM kullanımını kısıtlıyoruz (PC kasmasın)
+    ports:
+      - "9200:9200"
+    networks:
+      - coinpulse-net
+
+  # 4. Kibana (Opsiyonel): Elastic verisini görmek için arayüz
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.17.0
+    container_name: coinpulse-kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    networks:
+      - coinpulse-net
+
+networks:
+  coinpulse-net:
+    driver: bridge

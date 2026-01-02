@@ -1,0 +1,6 @@
+@CoinPulse.Api_HostAddress = http://localhost:5089
+
+GET {{CoinPulse.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

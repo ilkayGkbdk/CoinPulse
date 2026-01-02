@@ -1,0 +1,11 @@
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/bin/Debug/net10.0/CoinPulse.Core.deps.json
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/bin/Debug/net10.0/CoinPulse.Core.dll
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/bin/Debug/net10.0/CoinPulse.Core.pdb
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/obj/Debug/net10.0/CoinPulse.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/obj/Debug/net10.0/CoinPulse.Core.AssemblyInfoInputs.cache
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/obj/Debug/net10.0/CoinPulse.Core.AssemblyInfo.cs
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/obj/Debug/net10.0/CoinPulse.Core.csproj.CoreCompileInputs.cache
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/obj/Debug/net10.0/CoinPulse.Core.dll
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/obj/Debug/net10.0/refint/CoinPulse.Core.dll
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/obj/Debug/net10.0/CoinPulse.Core.pdb
+/Users/ilkaygokbudak/Development/Projects/CoinPulse/src/CoinPulse.Core/obj/Debug/net10.0/ref/CoinPulse.Core.dll
