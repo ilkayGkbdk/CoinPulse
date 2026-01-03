@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinPulse - Canlı Piyasa</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .table {
+            --bs-table-bg: #1e1e1e;
+            --bs-table-color: #e0e0e0;
+            border-color: #333;
+        }
+
+        .badge {
+            font-size: 0.9em;
+            padding: 0.5em 0.8em;
+        }
+
+        /* Yanıp sönme animasyonları */
+        .price-up {
+            color: #00ff00 !important;
+            background-color: rgba(0, 255, 0, 0.1);
+            transition: all 0.5s;
+        }
+
+        .price-down {
+            color: #ff4444 !important;
+            background-color: rgba(255, 0, 0, 0.1);
+            transition: all 0.5s;
+        }
+
+        .row-transition {
+            transition: background-color 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>🚀 CoinPulse <small class="text-muted">Live Monitor</small></h2>
+            <div>
+                <span id="connectionStatus" class="badge bg-secondary">Bağlantı Bekleniyor...</span>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header border-bottom border-secondary">
+                        <i class="bi bi-graph-up"></i> Canlı Piyasa Akışı (SignalR)
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sembol</th>
+                                    <th scope="col">Fiyat (USD)</th>
+                                    <th scope="col">Son Güncelleme</th>
+                                </tr>
+                            </thead>
+                            <tbody id="priceTableBody">
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted py-4">Veri akışı bekleniyor...
+                                        (Scripti çalıştırın)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="mt-2 text-end text-muted small">
+                    <span id="lastMessageTime"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SignalR Client Library (Daha kararlı bir CDN kullanıyoruz) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+    <script>
+        // API Portunu Buradan Ayarlayın (Program.cs çıktısındaki port olmalı)
+        // Genelde 5000, 5001 veya rastgele bir port (örn: 5089) olabilir.
+        const API_URL = "http://localhost:5089/hubs/crypto";
+
+        // Kütüphane yüklendi mi kontrolü
+        if (typeof signalR === 'undefined') {
+            alert("HATA: SignalR kütüphanesi yüklenemedi! Adblocker'ı kapatın veya internet bağlantınızı kontrol edin.");
+        }
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl(API_URL)
+            .withAutomaticReconnect([0, 2000, 10000, 30000]) // Koparsa tekrar dene
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        const statusBadge = document.getElementById("connectionStatus");
+        const tbody = document.getElementById("priceTableBody");
+        let isFirstData = true;
+
+        // Mesaj Geldiğinde
+        connection.on("ReceivePriceUpdate", (data) => {
+            if (isFirstData) {
+                tbody.innerHTML = ""; // "Veri bekleniyor" yazısını temizle
+                isFirstData = false;
+            }
+            updateTable(data);
+            document.getElementById("lastMessageTime").innerText = `Son paket: ${new Date().toLocaleTimeString()}`;
+        });
+
+        // Bağlantıyı Başlat
+        async function start() {
+            try {
+                await connection.start();
+                statusBadge.className = "badge bg-success";
+                statusBadge.innerText = "Bağlandı 🟢";
+                console.log("SignalR Bağlandı.");
+            } catch (err) {
+                statusBadge.className = "badge bg-danger";
+                statusBadge.innerText = "Bağlantı Hatası 🔴";
+                console.error("SignalR Bağlantı Hatası:", err);
+                // 5 saniye sonra tekrar dene
+                setTimeout(start, 5000);
+            }
+        }
+
+        // Bağlantı koparsa arayüzü güncelle
+        connection.onclose(async () => {
+            statusBadge.className = "badge bg-warning text-dark";
+            statusBadge.innerText = "Bağlantı Koptu ⚠️";
+        });
+
+        connection.onreconnecting(() => {
+            statusBadge.className = "badge bg-warning text-dark";
+            statusBadge.innerText = "Yeniden Bağlanılıyor... 🔄";
+        });
+
+        start();
+
+        // Tablo Güncelleme Mantığı
+        function updateTable(data) {
+            let row = document.getElementById(`row-${data.symbol}`);
+            const priceFormatted = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(data.price);
+            const time = new Date(data.timestamp).toLocaleTimeString();
+
+            if (row) {
+                // Mevcut satırı güncelle
+                const priceCell = row.cells[1];
+                const oldPriceText = priceCell.innerText.replace(/[^0-9.-]+/g, "");
+                const oldPrice = parseFloat(oldPriceText);
+
+                // Fiyat arttı mı azaldı mı?
+                row.className = "row-transition"; // class sıfırla
+                void row.offsetWidth; // reflow tetikle
+
+                if (data.price > oldPrice) {
+                    row.classList.add("price-up");
+                } else if (data.price < oldPrice) {
+                    row.classList.add("price-down");
+                }
+
+                priceCell.innerText = priceFormatted;
+                row.cells[2].innerText = time;
+
+                // Animasyonu temizle
+                setTimeout(() => {
+                    row.classList.remove("price-up", "price-down");
+                }, 1000);
+
+            } else {
+                // Yeni satır ekle
+                row = tbody.insertRow(0);
+                row.id = `row-${data.symbol}`;
+                row.className = "row-transition";
+                row.innerHTML = `
+                    <td class="fw-bold">${data.symbol}</td>
+                    <td>${priceFormatted}</td>
+                    <td>${time}</td>
+                `;
+            }
+        }
+    </script>
+</body>
+
+</html>

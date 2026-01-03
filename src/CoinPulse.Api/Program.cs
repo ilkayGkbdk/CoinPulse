@@ -1,3 +1,5 @@
+using CoinPulse.Api.Consumers;
+using CoinPulse.Api.Hubs;
 using CoinPulse.Api.Jobs;
 using CoinPulse.Infrastructure;
 using CoinPulse.Infrastructure.Logging;
@@ -23,6 +25,9 @@ try
 
     // Bizim yazdığımız altyapı servisi (DB + RabbitMQ)
     builder.Services.AddInfrastructureServices(builder.Configuration);
+
+    // SignalR servisi ekle
+    builder.Services.AddSignalR();
 
     // --- HANGFIRE KURULUMU BAŞLANGIÇ ---
     builder.Services.AddHangfire(config => config
@@ -72,6 +77,9 @@ try
     // API sadece mesaj gönderir (Producer), bu yüzden Consumer tanımlamıyoruz.
     builder.Services.AddMassTransit(x =>
     {
+        // API artık mesaj da dinliyor!
+        x.AddConsumer<PriceNotificationConsumer>();
+
         x.UsingRabbitMq((context, cfg) =>
         {
             cfg.Host("localhost", "/", h =>
@@ -87,6 +95,14 @@ try
     var app = builder.Build();
 
     app.UseSerilogRequestLogging();
+
+    // CORS AYARI (Frontend için kritik!)
+    // Şimdilik herkese izin verelim (Local development)
+    app.UseCors(x => x
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .SetIsOriginAllowed(origin => true) // Localhost erişimi için
+        .AllowCredentials());
 
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
@@ -104,22 +120,6 @@ try
     // 1. Dashboard'u aktif et (/hangfire adresinde çalışır)
     app.UseHangfireDashboard();
 
-    // 2. Periyodik İşleri Tanımla
-    var recurringJobManager = app.Services.GetRequiredService<IRecurringJobManager>();
-
-    // Her dakika çalışacak iş
-    recurringJobManager.AddOrUpdate<MarketReportingJob>(
-        "dakikalik-rapor",
-        job => job.GenerateDailyReportAsync(),
-        Cron.Minutely);
-
-    // Her gün gece 03:00'te çalışacak iş
-    recurringJobManager.AddOrUpdate<MarketReportingJob>(
-        "gece-temizligi",
-        job => job.CleanupOldDataAsync(),
-        "0 3 * * *"); // Cron formatı
-    // ---------------------------------
-
     // 2. Controller Rotalarını Eşlemelisin
     // (Gelen istekleri ilgili Controller'a yönlendirir)
     app.MapControllers();
@@ -132,6 +132,14 @@ try
 
     // Görsel Panel (/health-ui)
     app.MapHealthChecksUI(options => options.UIPath = "/health-ui");
+
+    // 3. SIGNALR HUB ROUTE
+    app.MapHub<CryptoHub>("/hubs/crypto");
+
+    // Hangfire job tanımları (Aynen kalsın)
+    var recurringJobManager = app.Services.GetRequiredService<IRecurringJobManager>();
+    recurringJobManager.AddOrUpdate<MarketReportingJob>("dakikalik-rapor", job => job.GenerateDailyReportAsync(), Cron.Minutely);
+    recurringJobManager.AddOrUpdate<MarketReportingJob>("gece-temizligi", job => job.CleanupOldDataAsync(), "0 3 * * *");
 
     app.Run();
 }
