@@ -7,36 +7,34 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.HealthChecks.Network" Version="9.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="9.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="9.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="9.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.Sqlite" Version="9.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="9.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.UI.PostgreSQL.Storage" Version="9.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="9.0.0" />
+    <!-- Arka Plan İşleri -->
     <PackageReference Include="Hangfire" Version="1.8.22" />
     <PackageReference Include="Hangfire.MemoryStorage" Version="1.8.1.2" />
+    
+    <!-- Auth & Security -->
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.2.0" />
+    
+    <!-- EF Core Tools -->
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.OpenApi" Version="2.3.0" />
+    
+    <!-- Logging -->
     <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
+    
+    <!-- Swagger & OpenAPI (Düzeltilen Kısım) -->
+    <!-- Swashbuckle'ın kararlı sürümünü kullanıyoruz -->
+    <!-- Models namespace'ini garantiye almak için bunu ekliyoruz -->
+    
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CoinPulse.Infrastructure\CoinPulse.Infrastructure.csproj" />
     <ProjectReference Include="..\CoinPulse.Core\CoinPulse.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Consumers/" />
-    <Folder Include="Controllers/" />
-    <Folder Include="Hubs/" />
-    <Folder Include="Jobs/" />
   </ItemGroup>
 
 </Project>

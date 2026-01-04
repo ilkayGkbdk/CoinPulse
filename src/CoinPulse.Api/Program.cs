@@ -23,6 +23,9 @@ try
     // 1. Altyapı (DB, Redis, Elastic, Repository)
     builder.Services.AddInfrastructure(builder.Configuration);
 
+    // --- YENİ EKLENEN ---
+    builder.Services.AddIdentityServices(builder.Configuration);
+
     // 2. Mesajlaşma (RabbitMQ) - Buraya kendi Consumer'ını veriyoruz
     builder.Services.AddMessageBroker<PriceNotificationConsumer>(builder.Configuration);
 
@@ -48,6 +51,8 @@ try
     if (app.Environment.IsDevelopment()) app.MapOpenApi();
 
     app.UseHttpsRedirection();
+
+    app.UseAuthentication();
     app.UseAuthorization();
 
     // Dashboardlar
