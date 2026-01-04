@@ -8,7 +8,7 @@ namespace CoinPulse.Infrastructure.Search;
 public class ElasticSearchService : ISearchService
 {
     private readonly ElasticsearchClient _client;
-    private const string IndexName = "crypto_prices"; // Tablo adı gibi düşünülebilir
+    private const string IndexName = "crypto-prices";
 
     public ElasticSearchService(ElasticsearchClient client)
     {
@@ -17,39 +17,39 @@ public class ElasticSearchService : ISearchService
 
     public async Task IndexPriceAsync(CryptoPrice price)
     {
-        // Eğer tablo yoksa oluştur mantığı kurulabilir ama
-        // elastic varsayılan olarak gönderdiğin veriye göre index oluşturur
-
         var response = await _client.IndexAsync(price, idx => idx.Index(IndexName));
-
         if (!response.IsValidResponse)
         {
-            // Loglama yapılabilir
-            throw new Exception("Elastic Index Hatası: " + response.DebugInformation);
+            throw new Exception($"Elastic Index Hatası: {response.DebugInformation}");
         }
     }
 
     public async Task<IEnumerable<CryptoPrice>> SearchPricesAsync(string symbol, DateTime from, DateTime to)
     {
         var response = await _client.SearchAsync<CryptoPrice>(s => s
-            .Index(IndexName) // Hangi indexte arama yapacağımız
+            .Index(IndexName)
             .Query(q => q
                 .Bool(b => b
                     .Must(
-                        // Sembol eşleşmesi
-                        m => m.Term(t => t.Field(f => f.Symbol.Suffix("keyword")).Value(symbol)),
+                        // Sembol için keyword (Küçük harf hassasiyeti)
+                        // Elastic genelde camelCase kaydeder: "symbol"
+                        m => m.Term(t => t.Field("symbol.keyword").Value(symbol)),
+
                         // Tarih aralığı
-                        m => m.Range(r => r.DateRange(d => d.Field(f => f.DataTimestamp).Gte(from).Lte(to)))
+                        // Property adı DataTimestamp olsa da Elastic'te "dataTimestamp" diye geçer.
+                        // C# Expression kullanmak yerine string olarak alan adını veriyoruz.
+                        m => m.Range(r => r.DateRange(d => d.Field("dataTimestamp").Gte(from).Lte(to)))
                     )
                 )
             )
-            .Size(1000) // Maksimum 1000 sonuç döndür
-            .Sort(srt => srt.Field(f => f.DataTimestamp, w => w.Order(SortOrder.Desc))) // yeniden eskiye sıralama
+            .Sort(srt => srt.Field("dataTimestamp", w => w.Order(SortOrder.Desc)))
+            .Size(1000)
         );
 
         if (!response.IsValidResponse)
         {
-            // Loglama yapılabilir
+            // Hata detayını görmek için loglayabilirsin
+            // Console.WriteLine(response.DebugInformation);
             return Enumerable.Empty<CryptoPrice>();
         }
 

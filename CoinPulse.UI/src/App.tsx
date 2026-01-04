@@ -60,7 +60,7 @@ function App() {
 				const formattedData = response.data.data
 					.map((item: any) => ({
 						// Elastic'ten gelen tarih bazen farklı formatta olabilir, güvenli parse:
-						time: new Date(item.timestamp).toLocaleTimeString([], {
+						time: new Date(item.dataTimestamp).toLocaleTimeString([], {
 							hour: "2-digit",
 							minute: "2-digit",
 						}),

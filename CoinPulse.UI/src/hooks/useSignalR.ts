@@ -5,7 +5,7 @@ import * as signalR from '@microsoft/signalr';
 export interface PriceUpdate {
     symbol: string;
     price: number;
-    timestamp: string;
+    dataTimestamp: string;
 }
 
 export const useSignalR = (hubUrl: string) => {
