@@ -35,37 +35,3 @@ do
 done
 
 echo "✅ Veri yükleme tamamlandı!"
-```
-
----
-
-### 3. Backend Tarafını Buna Uyarlama
-
-Script artık timestamp gönderiyor ama bizim Backend (`PriceRequest`) bunu karşılamıyor. Hemen güncelleyelim.
-
-**Adım 1: API DTO Güncellemesi**
-`src/CoinPulse.Api/Controllers/PricesController.cs` dosyasının en altındaki `PriceRequest` kaydını güncelle:
-
-```csharp
-// timestamp opsiyonel olabilir, gönderilmezse UtcNow kullanılır.
-public record PriceRequest(string Symbol, decimal Price, DateTime? Timestamp);
-```
-
-**Adım 2: Controller Mantığı**
-Yine `PricesController.cs` içindeki `PostPrice` metodunu güncelle:
-
-```csharp
-[HttpPost]
-public async Task<IActionResult> PostPrice([FromBody] PriceRequest request)
-{
-    var priceEvent = new PriceUpdatedEvent
-    {
-        Symbol = request.Symbol,
-        Price = request.Price,
-        // Eğer scriptten tarih gelirse onu kullan, gelmezse şu anı al.
-        Timestamp = request.Timestamp ?? DateTime.UtcNow 
-    };
-
-    await _publishEndpoint.Publish(priceEvent);
-    return Accepted(new { status = "Queued", message = "Fiyat işleme alındı." });
-}

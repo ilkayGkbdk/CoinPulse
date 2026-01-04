@@ -2,7 +2,24 @@ version: '3.8'
 
 services:
   # --- INFRASTRUCTURE ---
+  
+  postgres:
+    image: postgres:17-alpine
+    container_name: coinpulse-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=CoinPulseDb
+    ports:
+      # SOL TARAF (Dış): 5435 (Boş bir port seçtik)
+      # SAĞ TARAF (İç): 5432 (Postgres'in standart portu, bunu değiştirmemelisin)
+      - "5435:5432" 
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - coinpulse-net
 
+  # ... RabbitMQ, Redis, Elastic, Kibana AYNI KALIYOR ...
   rabbitmq:
     image: rabbitmq:3-management
     container_name: coinpulse-rabbitmq
@@ -21,7 +38,7 @@ services:
       - coinpulse-net
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.0 # Sürüm uyumlu
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.0
     container_name: coinpulse-elastic
     environment:
       - discovery.type=single-node
@@ -52,24 +69,18 @@ services:
       dockerfile: src/CoinPulse.Api/Dockerfile
     container_name: coinpulse-api
     ports:
-      - "5089:8080" # Dışarıya 5089, İçeride 8080
+      - "5089:8080"
     environment:
-      # Docker içinde 'localhost' yerine servis isimlerini kullanıyoruz:
-      - ConnectionStrings__DefaultConnection=Data Source=/app/data/coinpulse.db
+      # DİKKAT: Docker içinde iletişim kurarken standart port (5432) kullanılır!
+      # Host=postgres (Servis adı)
+      # Port=5432 (Konteynerin iç portu)
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=CoinPulseDb;Username=postgres;Password=123
       - Redis__ConnectionString=redis:6379
       - ElasticSearch__Uri=http://elasticsearch:9200
-      # HealthCheck için RabbitMQ stringini ezmemiz gerekebilir ama TCP kontrolü yaptığımız için gerek yok.
-      # --- YENİ EKLENEN SATIR ---
-      # HealthCheck UI'ın kendi kendine bağlanması için İÇ PORTU (8080) veriyoruz.
-      # "__" (çift alt çizgi) .NET'te iç içe JSON ayarlarını temsil eder.
-      - HealthChecksUI__HealthChecks__0__Uri=http://localhost:8080/health
-      # --- EKLENEN SATIR ---
-      # Artık API kodunda "RabbitMQ:Host" okuyoruz, o yüzden bunu vermemiz şart.
       - RabbitMQ__Host=rabbitmq
-      # ---------------------
-    volumes:
-      - ./docker-data:/app/data # Veritabanı kaybolmasın diye diske bağlıyoruz
+      - HealthChecksUI__HealthChecks__0__Uri=http://localhost:8080/health
     depends_on:
+      - postgres
       - rabbitmq
       - redis
       - elasticsearch
@@ -82,14 +93,14 @@ services:
       dockerfile: src/CoinPulse.Worker/Dockerfile
     container_name: coinpulse-worker
     environment:
-      - ConnectionStrings__DefaultConnection=Data Source=/app/data/coinpulse.db
+      # DİKKAT: Burada da Port=5432 olmalı.
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=CoinPulseDb;Username=postgres;Password=123
       - Redis__ConnectionString=redis:6379
       - ElasticSearch__Uri=http://elasticsearch:9200
       - RabbitMQ__Host=rabbitmq
-    volumes:
-      - ./docker-data:/app/data # Aynı veritabanına erişsin
     depends_on:
-      - api # Önce API ve DB hazır olsun
+      - api
+      - postgres
       - rabbitmq
       - redis
     networks:
@@ -101,7 +112,7 @@ services:
       dockerfile: Dockerfile
     container_name: coinpulse-ui
     ports:
-      - "5173:80" # Tarayıcıda http://localhost:5173
+      - "5173:80"
     depends_on:
       - api
     networks:
@@ -110,3 +121,6 @@ services:
 networks:
   coinpulse-net:
     driver: bridge
+
+volumes:
+  postgres-data:

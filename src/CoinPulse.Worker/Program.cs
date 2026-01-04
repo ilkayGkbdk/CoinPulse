@@ -1,7 +1,6 @@
-using CoinPulse.Infrastructure;
+using CoinPulse.Infrastructure.Extensions; // Extensions
 using CoinPulse.Infrastructure.Logging;
 using CoinPulse.Worker.Consumers;
-using MassTransit;
 using Serilog;
 
 LoggerSetup.ConfigureLogging("CoinPulse.Worker");
@@ -13,22 +12,12 @@ try
     builder.Logging.ClearProviders();
     builder.Logging.AddSerilog();
 
-    builder.Services.AddInfrastructureServices(builder.Configuration);
+    // 1. Altyapı (DB, Redis, Elastic, Repository)
+    // Worker sadece bunları kullanır, Hangfire veya HealthUI sunmaz.
+    builder.Services.AddInfrastructure(builder.Configuration);
 
-    // --- DEĞİŞKENLERİ ALALIM ---
-    var rabbitHost = builder.Configuration["RabbitMQ:Host"] ?? "localhost";
-    // ---------------------------
-
-    builder.Services.AddMassTransit(x =>
-    {
-        x.AddConsumer<PriceUpdatedConsumer>();
-        x.UsingRabbitMq((context, cfg) =>
-        {
-            // Hardcoded "localhost" YERİNE "rabbitHost"
-            cfg.Host(rabbitHost, "/", h => { h.Username("guest"); h.Password("guest"); });
-            cfg.ConfigureEndpoints(context);
-        });
-    });
+    // 2. Mesajlaşma (RabbitMQ) - Kendi Consumer'ını veriyoruz
+    builder.Services.AddMessageBroker<PriceUpdatedConsumer>(builder.Configuration);
 
     var host = builder.Build();
     host.Run();

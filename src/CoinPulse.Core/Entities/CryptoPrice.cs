@@ -1,11 +1,17 @@
 using System;
+using CoinPulse.Core.Common;
 
 namespace CoinPulse.Core.Entities;
 
-public class CryptoPrice
+// Artık BaseEntity'den miras alıyor
+public class CryptoPrice : BaseEntity
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public string Symbol { get; set; } = string.Empty; // e.g., BTC, ETH
+    public string Symbol { get; set; } = string.Empty;
     public decimal Price { get; set; }
-    public DateTime Timestamp { get; set; } = DateTime.UtcNow; // Time of the price record
+
+    // Timestamp yerine BaseEntity'deki CreatedAt kullanılacak.
+    // Ancak dışarıdan gelen verinin zamanını tutmak için ayrı bir alan tutabiliriz
+    // veya direkt CreatedAt'i set edebiliriz.
+    // Karışıklık olmaması için "DataTimestamp" diyelim (Verinin oluştuğu an).
+    public DateTime DataTimestamp { get; set; }
 }

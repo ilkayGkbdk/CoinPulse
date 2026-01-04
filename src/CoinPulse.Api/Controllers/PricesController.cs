@@ -33,7 +33,7 @@ namespace CoinPulse.Api.Controllers
             {
                 Symbol = request.Symbol,
                 Price = request.Price,
-                Timestamp = DateTime.UtcNow
+                Timestamp = request.Timestamp ?? DateTime.UtcNow
             };
 
             // 2. Eventi RabbitMQ'ya yayınla
@@ -57,7 +57,7 @@ namespace CoinPulse.Api.Controllers
             // Cache'de yoksa veritabanına bak
             var dbPrice = await _dbContext.CryptoPrices
                 .Where(x => x.Symbol == symbol.ToUpper())
-                .OrderByDescending(x => x.Timestamp)
+                .OrderByDescending(x => x.DataTimestamp)
                 .FirstOrDefaultAsync();
 
             if (dbPrice == null)
@@ -90,5 +90,5 @@ namespace CoinPulse.Api.Controllers
         }
     }
 
-    public record PriceRequest(string Symbol, decimal Price);
+    public record PriceRequest(string Symbol, decimal Price, DateTime? Timestamp);
 }

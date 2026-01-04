@@ -39,12 +39,12 @@ public class ElasticSearchService : ISearchService
                         // Sembol eşleşmesi
                         m => m.Term(t => t.Field(f => f.Symbol.Suffix("keyword")).Value(symbol)),
                         // Tarih aralığı
-                        m => m.Range(r => r.DateRange(d => d.Field(f => f.Timestamp).Gte(from).Lte(to)))
+                        m => m.Range(r => r.DateRange(d => d.Field(f => f.DataTimestamp).Gte(from).Lte(to)))
                     )
                 )
             )
             .Size(1000) // Maksimum 1000 sonuç döndür
-            .Sort(srt => srt.Field(f => f.Timestamp, w => w.Order(SortOrder.Desc))) // yeniden eskiye sıralama
+            .Sort(srt => srt.Field(f => f.DataTimestamp, w => w.Order(SortOrder.Desc))) // yeniden eskiye sıralama
         );
 
         if (!response.IsValidResponse)

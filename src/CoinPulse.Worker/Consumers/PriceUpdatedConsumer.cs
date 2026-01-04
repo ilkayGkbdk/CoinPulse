@@ -33,7 +33,9 @@ public class PriceUpdatedConsumer : IConsumer<PriceUpdatedEvent>
         {
             Symbol = message.Symbol,
             Price = message.Price,
-            Timestamp = message.Timestamp
+            // Timestamp -> DataTimestamp oldu
+            DataTimestamp = message.Timestamp,
+            // CreatedAt otomatik dolacak (BaseEntity)
         };
 
         _dbContext.CryptoPrices.Add(entity);
