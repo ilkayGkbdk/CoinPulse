@@ -1,17 +1,17 @@
 version: '3.8'
 
 services:
-  # 1. RabbitMQ: Mesaj Kuyruğu
+  # --- INFRASTRUCTURE ---
+
   rabbitmq:
     image: rabbitmq:3-management
     container_name: coinpulse-rabbitmq
     ports:
-      - "5672:5672" # Uygulama iletişimi
-      - "15672:15672" # Yönetim Paneli (User: guest, Pass: guest)
+      - "5672:5672"
+      - "15672:15672"
     networks:
       - coinpulse-net
 
-  # 2. Redis: Cache ve Distributed Lock
   redis:
     image: redis:alpine
     container_name: coinpulse-redis
@@ -20,22 +20,20 @@ services:
     networks:
       - coinpulse-net
 
-  # 3. Elasticsearch: Loglama ve Karmaşık Arama
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.0 # Sürüm uyumlu
     container_name: coinpulse-elastic
     environment:
       - discovery.type=single-node
-      - xpack.security.enabled=false # Dev ortamı için güvenliği kapatıyoruz
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # RAM kullanımını kısıtlıyoruz (PC kasmasın)
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ports:
       - "9200:9200"
     networks:
       - coinpulse-net
 
-  # 4. Kibana (Opsiyonel): Elastic verisini görmek için arayüz
   kibana:
-    image: docker.elastic.co/kibana/kibana:8.17.0
+    image: docker.elastic.co/kibana/kibana:8.15.0
     container_name: coinpulse-kibana
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
@@ -43,6 +41,69 @@ services:
       - "5601:5601"
     depends_on:
       - elasticsearch
+    networks:
+      - coinpulse-net
+
+  # --- APPLICATIONS ---
+
+  api:
+    build:
+      context: .
+      dockerfile: src/CoinPulse.Api/Dockerfile
+    container_name: coinpulse-api
+    ports:
+      - "5089:8080" # Dışarıya 5089, İçeride 8080
+    environment:
+      # Docker içinde 'localhost' yerine servis isimlerini kullanıyoruz:
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/coinpulse.db
+      - Redis__ConnectionString=redis:6379
+      - ElasticSearch__Uri=http://elasticsearch:9200
+      # HealthCheck için RabbitMQ stringini ezmemiz gerekebilir ama TCP kontrolü yaptığımız için gerek yok.
+      # --- YENİ EKLENEN SATIR ---
+      # HealthCheck UI'ın kendi kendine bağlanması için İÇ PORTU (8080) veriyoruz.
+      # "__" (çift alt çizgi) .NET'te iç içe JSON ayarlarını temsil eder.
+      - HealthChecksUI__HealthChecks__0__Uri=http://localhost:8080/health
+      # --- EKLENEN SATIR ---
+      # Artık API kodunda "RabbitMQ:Host" okuyoruz, o yüzden bunu vermemiz şart.
+      - RabbitMQ__Host=rabbitmq
+      # ---------------------
+    volumes:
+      - ./docker-data:/app/data # Veritabanı kaybolmasın diye diske bağlıyoruz
+    depends_on:
+      - rabbitmq
+      - redis
+      - elasticsearch
+    networks:
+      - coinpulse-net
+
+  worker:
+    build:
+      context: .
+      dockerfile: src/CoinPulse.Worker/Dockerfile
+    container_name: coinpulse-worker
+    environment:
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/coinpulse.db
+      - Redis__ConnectionString=redis:6379
+      - ElasticSearch__Uri=http://elasticsearch:9200
+      - RabbitMQ__Host=rabbitmq
+    volumes:
+      - ./docker-data:/app/data # Aynı veritabanına erişsin
+    depends_on:
+      - api # Önce API ve DB hazır olsun
+      - rabbitmq
+      - redis
+    networks:
+      - coinpulse-net
+
+  ui:
+    build:
+      context: ./CoinPulse.UI
+      dockerfile: Dockerfile
+    container_name: coinpulse-ui
+    ports:
+      - "5173:80" # Tarayıcıda http://localhost:5173
+    depends_on:
+      - api
     networks:
       - coinpulse-net
 

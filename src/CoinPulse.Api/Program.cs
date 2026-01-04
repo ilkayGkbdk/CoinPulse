@@ -2,10 +2,12 @@ using CoinPulse.Api.Consumers;
 using CoinPulse.Api.Hubs;
 using CoinPulse.Api.Jobs;
 using CoinPulse.Infrastructure;
+using CoinPulse.Infrastructure.Data;
 using CoinPulse.Infrastructure.Logging;
 using Hangfire;
 using Hangfire.MemoryStorage;
 using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 LoggerSetup.ConfigureLogging("CoinPulse.Api");
@@ -13,130 +15,96 @@ LoggerSetup.ConfigureLogging("CoinPulse.Api");
 try
 {
     var builder = WebApplication.CreateBuilder(args);
-
     builder.Host.UseSerilog();
 
-    // 1. Controller Servislerini Eklemelisin
-    // (Yoksa PricesController sınıfını sistem görmez)
     builder.Services.AddControllers();
-
-    // Add services to the container.
     builder.Services.AddOpenApi();
-
-    // Bizim yazdığımız altyapı servisi (DB + RabbitMQ)
     builder.Services.AddInfrastructureServices(builder.Configuration);
 
-    // SignalR servisi ekle
     builder.Services.AddSignalR();
 
-    // --- HANGFIRE KURULUMU BAŞLANGIÇ ---
+    // --- DEĞİŞKENLERİ ALALIM (Düzeltme Burada) ---
+    // Docker'dan "rabbitmq" gelecek, Local'de "localhost" kalacak.
+    var rabbitHost = builder.Configuration["RabbitMQ:Host"] ?? "localhost";
+    var elasticUri = builder.Configuration["ElasticSearch:Uri"] ?? "http://localhost:9200";
+    // ---------------------------------------------
+
     builder.Services.AddHangfire(config => config
         .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
         .UseSimpleAssemblyNameTypeSerializer()
         .UseRecommendedSerializerSettings()
-        .UseMemoryStorage()); // RAM'de tutar
-
-    // Hangfire Server (İşleri işleyen motor) API içinde çalışsın
+        .UseMemoryStorage());
     builder.Services.AddHangfireServer();
-    // --- HANGFIRE KURULUMU BİTİŞ ---
 
-    // --- HEALTH CHECKS SERVİSLERİ ---
+    // --- HEALTH CHECKS (Düzeltildi) ---
     builder.Services.AddHealthChecks()
-        // 1. SQLite Kontrolü
-        .AddSqlite(
-            builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=../coinpulse.db",
-            name: "SQLite DB 🗄️")
+        .AddSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=../coinpulse.db", name: "SQLite DB 🗄️")
+        .AddRedis(builder.Configuration["Redis:ConnectionString"] ?? "localhost:6379", name: "Redis Cache ⚡")
+        // Hardcoded "localhost" YERİNE değişkenden gelen "rabbitHost" kullanıyoruz:
+        .AddTcpHealthCheck(setup => setup.AddHost(rabbitHost, 5672), name: "Message Queue 🐇")
+        // Hardcoded URL YERİNE değişkenden gelen "elasticUri" kullanıyoruz:
+        .AddUrlGroup(new Uri(elasticUri), name: "Elasticsearch 🔎");
 
-        // 2. Redis Kontrolü
-        .AddRedis(
-            builder.Configuration["Redis:ConnectionString"] ?? "localhost:6379",
-            name: "Redis Cache ⚡")
+    builder.Services.AddHealthChecksUI(setup => { setup.SetEvaluationTimeInSeconds(10); })
+        .AddSqliteStorage("Data Source=healthchecks.db");
 
-        // 3. RabbitMQ Kontrolü
-        // --- DEĞİŞEN KISIM BAŞLANGIÇ ---
-        // Eski AddRabbitMQ kütüphanesi sürüm uyumsuzluğu yaptığı için
-        // doğrudan port kontrolü (TCP) yapıyoruz. Çok daha güvenlidir.
-        .AddTcpHealthCheck(
-            setup => setup.AddHost("localhost", 5672),
-            name: "Message Queue 🐇")
-        // --- DEĞİŞEN KISIM BİTİŞ ---
-
-        // 4. Elasticsearch Kontrolü (URL'e ping atarak)
-        .AddUrlGroup(
-            new Uri("http://localhost:9200"),
-            name: "Elasticsearch 🔎");
-
-    // UI Servisi (Arayüz verilerini hafızada tutsun)
-    builder.Services.AddHealthChecksUI(setup =>
-    {
-        setup.SetEvaluationTimeInSeconds(10); // 10 saniyede bir kontrol et
-    })
-    .AddSqliteStorage("Data Source=healthchecks.db");
-    // -------------------------------
-
-    // API sadece mesaj gönderir (Producer), bu yüzden Consumer tanımlamıyoruz.
+    // --- MASSTRANSIT (Düzeltildi) ---
     builder.Services.AddMassTransit(x =>
     {
-        // API artık mesaj da dinliyor!
         x.AddConsumer<PriceNotificationConsumer>();
-
         x.UsingRabbitMq((context, cfg) =>
         {
-            cfg.Host("localhost", "/", h =>
-            {
-                h.Username("guest");
-                h.Password("guest");
-            });
-
+            // Hardcoded "localhost" YERİNE değişkenden gelen "rabbitHost" kullanıyoruz:
+            cfg.Host(rabbitHost, "/", h => { h.Username("guest"); h.Password("guest"); });
             cfg.ConfigureEndpoints(context);
         });
     });
 
     var app = builder.Build();
 
+    // --- OTOMATİK MIGRATION (YENİ) ---
+    // Uygulama başlarken DB yoksa oluşturur ve tabloları ekler.
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        try
+        {
+            // Eğer veritabanı yoksa oluştur, varsa eksik migrationları uygula
+            dbContext.Database.Migrate();
+            Log.Information("✅ Veritabanı başarıyla güncellendi (Migrated).");
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "❌ Veritabanı migration hatası!");
+        }
+    }
+    // ----------------------------------
+
     app.UseSerilogRequestLogging();
 
-    // CORS AYARI (Frontend için kritik!)
-    // Şimdilik herkese izin verelim (Local development)
-    app.UseCors(x => x
-        .AllowAnyMethod()
-        .AllowAnyHeader()
-        .SetIsOriginAllowed(origin => true) // Localhost erişimi için
-        .AllowCredentials());
+    app.UseCors(x => x.AllowAnyMethod().AllowAnyHeader().SetIsOriginAllowed(origin => true).AllowCredentials());
 
-    // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
         app.MapOpenApi();
-        // Opsiyonel: Eğer Swagger UI görmek istersen buraya Scalar veya SwaggerUI eklenebilir
-        // ama şimdilik /openapi/v1.json adresinden şemayı görebilirsin.
     }
 
     app.UseHttpsRedirection();
+    app.UseAuthorization();
 
-    app.UseAuthorization(); // Genelde standartta bulunur, kalsın.
+    app.UseHangfireDashboard("/hangfire", new DashboardOptions
+    {
+        Authorization = new[] { new HangfireAuthorizationFilter() }
+    });
 
-    // --- HANGFIRE DASHBOARD & JOBS ---
-    // 1. Dashboard'u aktif et (/hangfire adresinde çalışır)
-    app.UseHangfireDashboard();
-
-    // 2. Controller Rotalarını Eşlemelisin
-    // (Gelen istekleri ilgili Controller'a yönlendirir)
-    app.MapControllers();
-
-    // Ham JSON verisi veren endpoint (DevOps araçları için)
     app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
     {
         ResponseWriter = HealthChecks.UI.Client.UIResponseWriter.WriteHealthCheckUIResponse
     });
-
-    // Görsel Panel (/health-ui)
     app.MapHealthChecksUI(options => options.UIPath = "/health-ui");
-
-    // 3. SIGNALR HUB ROUTE
     app.MapHub<CryptoHub>("/hubs/crypto");
+    app.MapControllers();
 
-    // Hangfire job tanımları (Aynen kalsın)
     var recurringJobManager = app.Services.GetRequiredService<IRecurringJobManager>();
     recurringJobManager.AddOrUpdate<MarketReportingJob>("dakikalik-rapor", job => job.GenerateDailyReportAsync(), Cron.Minutely);
     recurringJobManager.AddOrUpdate<MarketReportingJob>("gece-temizligi", job => job.CleanupOldDataAsync(), "0 3 * * *");
@@ -145,9 +113,20 @@ try
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "Uygulama beklenmedik bir şekilde sonlandı!");
+    Log.Fatal(ex, "Uygulama beklenmedik şekilde sonlandı!");
 }
 finally
 {
     Log.CloseAndFlush();
+}
+
+// Hangfire Dashboard'a girişe izin veren filtre
+public class HangfireAuthorizationFilter : Hangfire.Dashboard.IDashboardAuthorizationFilter
+{
+    public bool Authorize(Hangfire.Dashboard.DashboardContext context)
+    {
+        // Production'da buraya şifre/kullanıcı kontrolü konur.
+        // Dev ortamı için herkese izin veriyoruz (True).
+        return true;
+    }
 }

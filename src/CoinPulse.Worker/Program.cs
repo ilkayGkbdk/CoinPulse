@@ -1,6 +1,5 @@
 using CoinPulse.Infrastructure;
 using CoinPulse.Infrastructure.Logging;
-using CoinPulse.Worker;
 using CoinPulse.Worker.Consumers;
 using MassTransit;
 using Serilog;
@@ -11,30 +10,22 @@ try
 {
     var builder = Host.CreateApplicationBuilder(args);
 
-    builder.Logging.ClearProviders(); // Varsayılan logları temizle
-    builder.Logging.AddSerilog();     // Serilog'u ekle
+    builder.Logging.ClearProviders();
+    builder.Logging.AddSerilog();
 
-    builder.Services.AddHostedService<Worker>();
-
-    // 1. Veritabanı erişimi için Infrastructure servisini ekle
-    // Worker da DB'ye yazacağı için buna ihtiyacı var.
     builder.Services.AddInfrastructureServices(builder.Configuration);
 
-    // 2. MassTransit ve Consumer Yapılandırması
+    // --- DEĞİŞKENLERİ ALALIM ---
+    var rabbitHost = builder.Configuration["RabbitMQ:Host"] ?? "localhost";
+    // ---------------------------
+
     builder.Services.AddMassTransit(x =>
     {
-        // Consumer sınıfımızı sisteme tanıtıyoruz
         x.AddConsumer<PriceUpdatedConsumer>();
-
         x.UsingRabbitMq((context, cfg) =>
         {
-            cfg.Host("localhost", "/", h =>
-            {
-                h.Username("guest");
-                h.Password("guest");
-            });
-
-            // Bu komut, PriceUpdatedConsumer için otomatik bir kuyruk (Queue) oluşturur.
+            // Hardcoded "localhost" YERİNE "rabbitHost"
+            cfg.Host(rabbitHost, "/", h => { h.Username("guest"); h.Password("guest"); });
             cfg.ConfigureEndpoints(context);
         });
     });
