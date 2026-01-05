@@ -2,6 +2,7 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using CoinPulse.Core.Events;
+using CoinPulse.Infrastructure.Services;
 using MassTransit;
 
 namespace CoinPulse.Worker.Services;
@@ -11,44 +12,68 @@ public class BinanceIngestionWorker : BackgroundService
     private readonly ILogger<BinanceIngestionWorker> _logger;
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly IPublishEndpoint _publishEndpoint;
+    private readonly IServiceProvider _serviceProvider; // Scoped servis çağırmak için
 
-    private readonly List<string> _symbols = new() { "BTCUSDT", "ETHUSDT", "SOLUSDT", "AVAXUSDT", "XRPUSDT" };
-
-    public BinanceIngestionWorker(ILogger<BinanceIngestionWorker> logger, IHttpClientFactory httpClientFactory, IPublishEndpoint publishEndpoint)
+    public BinanceIngestionWorker(
+        ILogger<BinanceIngestionWorker> logger,
+        IHttpClientFactory httpClientFactory,
+        IPublishEndpoint publishEndpoint,
+        IServiceProvider serviceProvider)
     {
         _logger = logger;
         _httpClientFactory = httpClientFactory;
         _publishEndpoint = publishEndpoint;
+        _serviceProvider = serviceProvider;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        _logger.LogInformation("🌍 Binance Veri Akışı Başlatılıyor...");
+        // İlk açılışta varsayılanları yükle
+        using (var scope = _serviceProvider.CreateScope())
+        {
+            var symbolService = scope.ServiceProvider.GetRequiredService<SymbolService>();
+            await symbolService.InitializeDefaultsAsync();
+        }
+
+        _logger.LogInformation("🌍 Dinamik Veri Akışı Başlatılıyor...");
 
         while (!stoppingToken.IsCancellationRequested)
         {
             try
             {
-                // Her 5 saniyede bir çalış
                 await FetchAndPublishPrices();
                 await Task.Delay(5000, stoppingToken);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Binance veri çekme hatası!");
-                await Task.Delay(10000, stoppingToken); // Hata varsa 10sn bekle
+                _logger.LogError(ex, "Veri döngüsü hatası!");
+                await Task.Delay(10000, stoppingToken);
             }
         }
     }
 
     private async Task FetchAndPublishPrices()
     {
+        using var scope = _serviceProvider.CreateScope();
+        var symbolService = scope.ServiceProvider.GetRequiredService<SymbolService>();
+
+        // Redis'ten güncel listeyi çek
+        var activeSymbols = await symbolService.GetActiveSymbolsAsync();
+
         using var client = _httpClientFactory.CreateClient();
 
-        foreach (var symbol in _symbols)
+        // Binance her seferinde tek tek sormak yerine toplu fiyat sorabiliriz (Optimasyon)
+        // Ama basitlik için döngüyle devam edelim.
+        foreach (var symbol in activeSymbols)
         {
-            // Binance Public API (Auth gerektirmez)
-            var url = $"https://api.binance.com/api/v3/ticker/price?symbol={symbol}";
+            // Binance'de Gümüş (XAG) ve Altın (XAU) genelde PAXG veya farklı paritelerdedir.
+            // Basitlik için hepsine USDT ekleyip soruyoruz.
+            var binanceSymbol = $"{symbol}USDT";
+
+            // NOT: Binance'de her sembol USDT ile bitmez (Örn: BTCTRY). 
+            // İleride mapping tablosu yapılabilir.
+
+            var url = $"https://api.binance.com/api/v3/ticker/price?symbol={binanceSymbol}";
 
             var response = await client.GetAsync(url);
             if (response.IsSuccessStatusCode)
@@ -58,19 +83,18 @@ public class BinanceIngestionWorker : BackgroundService
 
                 if (data != null && decimal.TryParse(data.Price, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out var price))
                 {
-                    // "BTCUSDT" -> "BTC" yapalım (Sondaki USDT'yi at)
-                    var cleanSymbol = symbol.Replace("USDT", "");
-
-                    // RabbitMQ'ya fırlat! (Bizim API'deki PostPrice metodunun yaptığı işi yapıyor)
                     await _publishEndpoint.Publish(new PriceUpdatedEvent
                     {
-                        Symbol = cleanSymbol,
+                        Symbol = symbol, // Orijinal sembolü kullan (BTC)
                         Price = price,
                         Timestamp = DateTime.UtcNow
                     });
-
-                    _logger.LogInformation($"✅ Binance: {cleanSymbol} -> {price}$");
                 }
+            }
+            else
+            {
+                // Binance'de yoksa logla (Kullanıcı saçma bir şey girdiyse)
+                // _logger.LogWarning($"Binance'de bulunamadı: {binanceSymbol}");
             }
         }
     }

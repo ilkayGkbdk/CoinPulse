@@ -10,12 +10,14 @@ public class PortfolioService
     private readonly IGenericRepository<PortfolioTransaction> _transactionRepo;
     private readonly IGenericRepository<CryptoPrice> _priceRepo;
     private readonly ICacheService _cacheService;
+    private readonly SymbolService _symbolService;
 
-    public PortfolioService(IGenericRepository<PortfolioTransaction> transactionRepo, IGenericRepository<CryptoPrice> priceRepo, ICacheService cacheService)
+    public PortfolioService(IGenericRepository<PortfolioTransaction> transactionRepo, IGenericRepository<CryptoPrice> priceRepo, ICacheService cacheService, SymbolService symbolService)
     {
         _transactionRepo = transactionRepo;
         _priceRepo = priceRepo;
         _cacheService = cacheService;
+        _symbolService = symbolService;
     }
 
     public async Task BuyAssetAsync(string userId, BuyCryptoDto dto)
@@ -31,6 +33,10 @@ public class PortfolioService
         else
         {
             var symbolUpper = dto.Symbol.ToUpper();
+            // 1. YENİ COİN Mİ? SİSTEME DAHİL ET!
+            // Kullanıcı yeni bir şey aldıysa, worker bunu hemen takip etmeye başlasın.
+            await _symbolService.AddSymbolAsync(symbolUpper);
+
             var cacheKey = $"price:{symbolUpper}";
 
             var cachedData = await _cacheService.GetAsync<CryptoPrice>(cacheKey);

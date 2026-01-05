@@ -40,7 +40,7 @@ public static class ServiceCollectionExtensions
         // 3. Redis Cache
         var redisConfig = configuration["Redis:ConnectionString"] ?? "localhost:6379";
         services.AddSingleton<IConnectionMultiplexer>(sp => ConnectionMultiplexer.Connect(redisConfig));
-        services.AddScoped<ICacheService, RedisCacheService>();
+        services.AddSingleton<ICacheService, RedisCacheService>();
 
         // 4. Elasticsearch
         var elasticUri = configuration["ElasticSearch:Uri"] ?? "http://localhost:9200";
@@ -53,6 +53,7 @@ public static class ServiceCollectionExtensions
 
         // 5. Diğer Servisler
         services.AddScoped<PortfolioService>();
+        services.AddScoped<SymbolService>();
 
         return services;
     }
