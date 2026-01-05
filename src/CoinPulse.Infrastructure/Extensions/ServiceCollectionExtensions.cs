@@ -51,6 +51,9 @@ public static class ServiceCollectionExtensions
         services.AddSingleton(client);
         services.AddScoped<ISearchService, ElasticSearchService>();
 
+        // 5. Diğer Servisler
+        services.AddScoped<PortfolioService>();
+
         return services;
     }
 

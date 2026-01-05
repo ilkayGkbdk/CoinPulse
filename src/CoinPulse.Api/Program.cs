@@ -6,6 +6,7 @@ using CoinPulse.Infrastructure.Extensions; // Yeni extensions burada
 using CoinPulse.Infrastructure.Logging;
 using Hangfire;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi;
 using Serilog;
 
 LoggerSetup.ConfigureLogging("CoinPulse.Api");
@@ -17,6 +18,15 @@ try
 
     builder.Services.AddControllers();
     builder.Services.AddOpenApi();
+    builder.Services.AddSwaggerGen(c =>
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Title = "CoinPulse API",
+            Version = "v1",
+            Description = "Cryptocurrency portfolio management API"
+        });
+    });
     builder.Services.AddSignalR();
 
     // --- TEMİZLENMİŞ SERVİS KAYITLARI ---
@@ -48,7 +58,16 @@ try
     app.UseSerilogRequestLogging();
     app.UseCors(x => x.AllowAnyMethod().AllowAnyHeader().SetIsOriginAllowed(_ => true).AllowCredentials());
 
-    if (app.Environment.IsDevelopment()) app.MapOpenApi();
+    if (app.Environment.IsDevelopment())
+    {
+        app.MapOpenApi();
+        app.UseSwagger();
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "CoinPulse API v1");
+            c.RoutePrefix = "swagger";
+        });
+    }
 
     app.UseHttpsRedirection();
 

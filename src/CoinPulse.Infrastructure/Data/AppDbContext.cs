@@ -12,6 +12,7 @@ public class AppDbContext : IdentityDbContext<AppUser>
     }
 
     public DbSet<CryptoPrice> CryptoPrices { get; set; }
+    public DbSet<PortfolioTransaction> PortfolioTransactions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
