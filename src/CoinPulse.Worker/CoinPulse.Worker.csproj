@@ -20,5 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Consumers/" />
+    <Folder Include="Services/" />
   </ItemGroup>
 </Project>
